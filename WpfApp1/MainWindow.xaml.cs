@@ -18,7 +18,7 @@ namespace WpfApp1
 
 {
     //Charlies kommentar
-    // Håkans komentar
+    // Håkans komentar 2 
     // Susannas kommentar
     //
 
