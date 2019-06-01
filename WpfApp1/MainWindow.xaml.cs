@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Npgsql;
 
-namespace WpfApp1
+namespace WpfApp1 // ändra namn
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
