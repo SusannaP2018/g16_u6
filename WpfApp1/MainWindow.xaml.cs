@@ -17,7 +17,7 @@ using Npgsql;
 namespace WpfApp1
 
 {
-
+    //Charlies kommentar
     // Håkans komentar
     // Susannas kommentar
 
