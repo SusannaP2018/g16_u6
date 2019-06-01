@@ -20,7 +20,7 @@ namespace WpfApp1
 
     // Håkans komentar
     // Susannas kommentar
-
+    //
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
