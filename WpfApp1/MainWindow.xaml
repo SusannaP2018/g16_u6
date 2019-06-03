@@ -7,14 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="183" Margin="124,10,0,0" VerticalAlignment="Top" Width="189"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="517,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button x:Name="btnVardnadshavare" Content="Visa vardnadshavare" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click"/>
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="246" Margin="141,10,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBox1_SelectionChanged"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="664,37,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <TextBox x:Name="personidTextBox" HorizontalAlignment="Left" Height="23" Margin="134,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="fnameTextBox" HorizontalAlignment="Left" Height="23" Margin="270,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="lnameTextBox" HorizontalAlignment="Left" Height="23" Margin="410,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Lägg till" HorizontalAlignment="Left" Margin="546,261,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
         <Button Content="Uppdatera" HorizontalAlignment="Left" Margin="546,298,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
-        <Button Content="Ta bort" HorizontalAlignment="Left" Margin="517,95,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <Button Content="Ta bort" HorizontalAlignment="Left" Margin="664,83,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <Button x:Name="btnTest" Content="Visa barn" HorizontalAlignment="Left" Margin="373,15,0,0" VerticalAlignment="Top" Width="75" Click="BtnTest_Click"/>
+        <ComboBox x:Name="cmbBoxBarn" HorizontalAlignment="Left" Margin="373,56,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbBoxBarn_SelectionChanged"/>
     </Grid>
 </Window>
