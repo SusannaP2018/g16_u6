@@ -10,16 +10,16 @@ namespace WpfApp1
 {
     class DbOperations
     {
-        //metod som hämtar alla personer från persontabellen
-        public List<Person> GetAllPersons()
+        //metod som hämtar alla VARDNADSHAVAR från VARDNADSHAVARETABELLEN
+        public List<Vardnadshavare> GetAllVardnadshavare()
         {
-            Person p;
-            List<Person> persons = new List<Person>();
+            Vardnadshavare v;
+            List<Vardnadshavare> vardnadshavares = new List<Vardnadshavare>();
 
-            string stmt = "SELECT * FROM person";
+            string stmt = "SELECT * FROM vardnadshavare";
 
             var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString);
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString);
             conn.Open();
 
             var cmd = new NpgsqlCommand(stmt, conn);
@@ -28,18 +28,56 @@ namespace WpfApp1
 
             while (reader.Read())
             {
-                p = new Person()
+                v = new Vardnadshavare()
                 {
-                    id = reader.GetInt32(0),
-                    firstname = reader.GetString(1),
-                    lastname = reader.GetString(2)
+                    Id = reader.GetInt32(0),
+                    FirstName = reader.GetString(1),
+                    LastName = reader.GetString(2),
+                    Telephone = reader.GetString(3)
+                    
                 };
-                persons.Add(p);
+                vardnadshavares.Add(v);
             }
 
-            return persons;
+            return vardnadshavares;
 
         }
+        //metod som hämtar alla BARN från BARNTABELLEN
+
+        public List<Barn> GetAllBarn()
+        {
+            Barn b;
+            List<Barn> barns = new List<Barn>();
+
+            string stmt = "SELECT * FROM barn";
+
+            var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString);
+            conn.Open();
+
+            var cmd = new NpgsqlCommand(stmt, conn);
+
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                b = new Barn()
+                {
+                    Id = reader.GetInt32(0),
+                    FirstName = reader.GetString(1),
+                    LastName = reader.GetString(2),
+                    Lokal = reader.GetString(3),
+                    Avdelning = reader.GetInt32(4)
+
+
+                };
+                barns.Add(b);
+            }
+
+            return barns;
+
+        }
+
 
         //metod som hämtar en person baserat på ID
 

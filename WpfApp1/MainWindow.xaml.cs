@@ -32,71 +32,109 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
             DbOperations db = new DbOperations();
+        Vardnadshavare selectedVardnadshavare;
+        Barn selectedBarn;
+        
+        //Klicka här för att visa alla VÅRDNADSHAVARE i listboxen
+        private void Button_Click(object sender, RoutedEventArgs e)        {
+             List<Vardnadshavare> vardnadshavares = db.GetAllVardnadshavare();
+            listBox1.ItemsSource = vardnadshavares;
+            //try
+            //{
+            //    List<Person> persons = db.GetAllPersons();
+            //    listBox1.ItemsSource = persons;
+            //}
+            //catch (PostgresException ex)
+            //{
 
-            try
+            //    MessageBox.Show(ex.Message);
+            //}
+            
+
+        }
+
+        // Markera en VÅRDNADSHAVARE.
+        private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
+        }
+
+        // visa Vilket BARN som hör till vilken VÅRDNADSHAVARE
+        private void BtnTest_Click(object sender, RoutedEventArgs e)
+        {
+            selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
+
+            
+            List<Barn> barns = db.GetAllBarn();
+
+            foreach (var b in barns)
             {
-                List<Person> persons = db.GetAllPersons();
-                listBox1.ItemsSource = persons;
-            }
-            catch (PostgresException ex)
-            {
-
-                MessageBox.Show(ex.Message);
+                if (selectedVardnadshavare.Id == b.Id)
+                {
+                    cmbBoxBarn.ItemsSource = b.FirstName;
+                }
             }
 
+
+
+
+        }
+
+        private void CmbBoxBarn_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            DbOperations db = new DbOperations();
+          //  DbOperations db = new DbOperations();
 
-            int id = Convert.ToInt32(idTextBox.Text);
+          // // int id = Convert.ToInt32(idTextBox.Text);
 
-            try
-            {
-                Person p = db.GetPersonById(id);
-                MessageBox.Show(p.ToString());
-            }
-            catch (PostgresException ex)
-            {
+          //  try
+          //  {
+          ////      Person p = db.GetPersonById(id);
+          //      MessageBox.Show(p.ToString());
+          //  }
+          //  catch (PostgresException ex)
+          //  {
 
-                MessageBox.Show(ex.Message);
-            }
+          //      MessageBox.Show(ex.Message);
+          //  }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            DbOperations db = new DbOperations();
+            //DbOperations db = new DbOperations();
 
-            int id = Convert.ToInt32(personidTextBox.Text);
-            string fname = fnameTextBox.Text;
-            string lname = lnameTextBox.Text;
+            //int id = Convert.ToInt32(personidTextBox.Text);
+            //string fname = fnameTextBox.Text;
+            //string lname = lnameTextBox.Text;
 
-            db.AddNewPerson(id, fname, lname);
+            //db.AddNewPerson(id, fname, lname);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            DbOperations db = new DbOperations();
+        //    DbOperations db = new DbOperations();
 
-            int id = Convert.ToInt32(personidTextBox.Text);
-            string fname = fnameTextBox.Text;
-            string lname = lnameTextBox.Text;
+        //    int id = Convert.ToInt32(personidTextBox.Text);
+        //    string fname = fnameTextBox.Text;
+        //    string lname = lnameTextBox.Text;
 
-            db.UpdatePerson(id, fname, lname);
-        }
+        //    db.UpdatePerson(id, fname, lname);
+       }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            DbOperations db = new DbOperations();
+         //   DbOperations db = new DbOperations();
 
-            int id = Convert.ToInt32(idTextBox.Text);
+         ////   int id = Convert.ToInt32(idTextBox.Text);
 
-            db.DeletePerson(id);
+         //   db.DeletePerson(id);
         }
+
+       
     }
 }
