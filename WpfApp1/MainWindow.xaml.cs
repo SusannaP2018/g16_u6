@@ -70,10 +70,13 @@ namespace WpfApp1
 
             foreach (var b in barns)
             {
+                
                 if (selectedVardnadshavare.Id == b.Id)
                 {
-                    cmbBoxBarn.ItemsSource = b.FirstName;
+                    cmbBoxBarn.Items.Add(b.FirstName);
                 }
+
+                
             }
 
 
@@ -88,6 +91,15 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+
+            List<Schema> schemas = new List<Schema>();
+            Schema s = new Schema()
+            {
+               
+                Frukost = true
+                
+            };
+            schemas.Add(s);
           //  DbOperations db = new DbOperations();
 
           // // int id = Convert.ToInt32(idTextBox.Text);

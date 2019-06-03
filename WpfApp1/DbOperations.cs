@@ -77,7 +77,52 @@ namespace WpfApp1
             return barns;
 
         }
+        // Metod som hämtar barnens SCHEMA
+        public List<Schema> GetSchemaBarn()
+        {
+            Schema s;
+            List<Schema> scheman = new List<Schema>();
 
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "select narvaro.narvarodag, narvaro.ledigdag, narvaro.sjukdag, dagsschema.frukost, dagsschema.far_hamta, narvaro.barn_id from narvaro inner join dagsschema on narvaro.barn_id = dagsschema.barn_id";
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            s = new Schema()
+                            {
+                                Narvarodag = reader.GetDateTime(0),
+                                LedigDag = reader.GetDateTime(1),
+                                Sjukdag = reader.GetDateTime(2),
+                                Frukost = reader.GetBoolean(3),
+                                Far_hamta = reader.GetString(4),
+                                Barn_id = reader.GetInt32(5)
+
+                            };
+                            scheman.Add(s);
+                        }
+                        return scheman;
+                    }
+
+                }
+
+
+
+            }
+
+
+                
+
+
+
+        }
 
         //metod som hämtar en person baserat på ID
 
