@@ -38,7 +38,7 @@ namespace WpfApp1
 
             try
             {
-                List<Person> persons = db.GetAllPersons();
+                List<Personal> persons = db.GetAllPersons();
                 listBox1.ItemsSource = persons;
             }
             catch (PostgresException ex)
@@ -54,11 +54,11 @@ namespace WpfApp1
         {
             DbOperations db = new DbOperations();
 
-            int id = Convert.ToInt32(idTextBox.Text);
+            int id = Convert.ToInt32(personidTextBox.Text);
 
             try
             {
-                Person p = db.GetPersonById(id);
+                Personal p = db.GetPersonById(id);
                 MessageBox.Show(p.ToString());
             }
             catch (PostgresException ex)
@@ -94,7 +94,7 @@ namespace WpfApp1
         {
             DbOperations db = new DbOperations();
 
-            int id = Convert.ToInt32(idTextBox.Text);
+            int id = Convert.ToInt32(personidTextBox.Text);
 
             db.DeletePerson(id);
         }

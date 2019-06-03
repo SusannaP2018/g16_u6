@@ -11,10 +11,10 @@ namespace WpfApp1
     class DbOperations
     {
         //metod som hämtar alla personer från persontabellen
-        public List<Person> GetAllPersons()
+        public List<Personal> GetAllPersons()
         {
-            Person p;
-            List<Person> persons = new List<Person>();
+            Personal p;
+            List<Personal> persons = new List<Personal>();
 
             string stmt = "SELECT * FROM person";
 
@@ -28,7 +28,7 @@ namespace WpfApp1
 
             while (reader.Read())
             {
-                p = new Person()
+                p = new Personal()
                 {
                     id = reader.GetInt32(0),
                     firstname = reader.GetString(1),
@@ -43,9 +43,9 @@ namespace WpfApp1
 
         //metod som hämtar en person baserat på ID
 
-        public Person GetPersonById(int id)
+        public Personal GetPersonById(int id)
         {
-            Person p = new Person();
+            Personal p = new Personal();
             using (var conn = new
                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
             {
