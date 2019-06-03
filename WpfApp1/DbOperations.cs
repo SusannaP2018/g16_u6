@@ -106,7 +106,7 @@ namespace WpfApp1
                                 Barn_id = reader.GetInt32(5)
 
                             };
-                            scheman.Add(s);
+                            scheman.Add(s); 
                         }
                         return scheman;
                     }
