@@ -124,90 +124,91 @@ namespace WpfApp1
 
         }
 
-        //metod som hämtar en person baserat på ID
 
-        public Person GetPersonById(int id)
-        {
-            Person p = new Person();
-            using (var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
+        /*
+           //metod som hämtar en person baserat på ID
+            public Person GetPersonById(int id)
             {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
+                Person p = new Person();
+                using (var conn = new
+                    NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
                 {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM person WHERE person_id = @person_id";
-
-                    cmd.Parameters.AddWithValue("person_id", id);
-
-                    using (var reader = cmd.ExecuteReader())
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand())
                     {
-                        while (reader.Read())
+                        cmd.Connection = conn;
+                        cmd.CommandText = "SELECT * FROM person WHERE person_id = @person_id";
+
+                        cmd.Parameters.AddWithValue("person_id", id);
+
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            p.id = reader.GetInt32(0);
-                            p.firstname = reader.GetString(1);
-                            p.lastname = reader.GetString(2);
+                            while (reader.Read())
+                            {
+                                p.id = reader.GetInt32(0);
+                                p.firstname = reader.GetString(1);
+                                p.lastname = reader.GetString(2);
+                            }
                         }
                     }
+                    return p;
                 }
-                return p;
             }
-        }
 
-        //metod för att lägga till personer i tabellen
-        public void AddNewPerson(int person_id, string firstname, string lastname)
-        {
-            using (var conn = new
-            NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
+            //metod för att lägga till personer i tabellen
+            public void AddNewPerson(int person_id, string firstname, string lastname)
             {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
+                using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
                 {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO person(person_id, firstname, lastname) VALUES (@person_id, @firstname, @lastname) ";
-                    cmd.Parameters.AddWithValue("person_id", person_id);
-                    cmd.Parameters.AddWithValue("firstname", firstname);
-                    cmd.Parameters.AddWithValue("lastname", lastname);
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = "INSERT INTO person(person_id, firstname, lastname) VALUES (@person_id, @firstname, @lastname) ";
+                        cmd.Parameters.AddWithValue("person_id", person_id);
+                        cmd.Parameters.AddWithValue("firstname", firstname);
+                        cmd.Parameters.AddWithValue("lastname", lastname);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
-        }
 
-        //metod för att ändra tabellen
-        public void UpdatePerson(int person_id, string firstname, string lastname)
-        {
-            using (var conn = new
-            NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
+            //metod för att ändra tabellen
+            public void UpdatePerson(int person_id, string firstname, string lastname)
             {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
+                using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
                 {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "UPDATE person SET (firstname, lastname) = " +
-                        "(@firstname, @lastname) WHERE person_id = @person_id";
-                    cmd.Parameters.AddWithValue("person_id", person_id);
-                    cmd.Parameters.AddWithValue("firstname", firstname);
-                    cmd.Parameters.AddWithValue("lastname", lastname);
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = "UPDATE person SET (firstname, lastname) = " +
+                            "(@firstname, @lastname) WHERE person_id = @person_id";
+                        cmd.Parameters.AddWithValue("person_id", person_id);
+                        cmd.Parameters.AddWithValue("firstname", firstname);
+                        cmd.Parameters.AddWithValue("lastname", lastname);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
-        }
 
-        //metod för att ta bort data i tabellen
-        public void DeletePerson(int id)
-        {
-            using (var conn = new
-            NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
+            //metod för att ta bort data i tabellen
+            public void DeletePerson(int id)
             {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
+                using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
                 {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "DELETE FROM person WHERE person_id = @person_id";
-                    cmd.Parameters.AddWithValue("@person_id", id);
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        cmd.Connection = conn;
+                        cmd.CommandText = "DELETE FROM person WHERE person_id = @person_id";
+                        cmd.Parameters.AddWithValue("@person_id", id);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-            }
-        }
+            } */
     }
 }
