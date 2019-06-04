@@ -64,7 +64,7 @@ namespace WpfApp1
         private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
             selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
-
+            
             
             List<Barn> barns = db.GetAllBarn();
 
@@ -92,28 +92,23 @@ namespace WpfApp1
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            List<Schema> schemas = new List<Schema>();
-            Schema s = new Schema()
+
+
+            //  DbOperations db = new DbOperations();
+
+            // // int id = Convert.ToInt32(idTextBox.Text);
+                //      person p = db.getpersonbyid(id);
+
+            try
             {
-               
-                Frukost = true
+            List<Schema> schemas = db.GetSchemaBarn();
                 
-            };
-            schemas.Add(s);
-          //  DbOperations db = new DbOperations();
+            }
+            catch (PostgresException ex)
+            {
 
-          // // int id = Convert.ToInt32(idTextBox.Text);
-
-          //  try
-          //  {
-          ////      Person p = db.GetPersonById(id);
-          //      MessageBox.Show(p.ToString());
-          //  }
-          //  catch (PostgresException ex)
-          //  {
-
-          //      MessageBox.Show(ex.Message);
-          //  }
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

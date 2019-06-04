@@ -96,17 +96,15 @@ namespace WpfApp1
                     {
                         while (reader.Read())
                         {
-                            s = new Schema()
+                            s = new Schema();
+                            if (!reader.IsDBNull(0))
                             {
-                                Narvarodag = reader.GetDateTime(0),
-                                LedigDag = reader.GetDateTime(1),
-                                Sjukdag = reader.GetDateTime(2),
-                                Frukost = reader.GetBoolean(3),
-                                Far_hamta = reader.GetString(4),
-                                Barn_id = reader.GetInt32(5)
-
-                            };
-                            scheman.Add(s); 
+                                s.Narvarodag = reader.GetDateTime(0);
+                            }
+                            else
+                            {
+                             //   s.Narvarodag = 2011,06,10;
+                            }
                         }
                         return scheman;
                     }
