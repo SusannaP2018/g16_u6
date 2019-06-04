@@ -25,23 +25,17 @@ namespace WpfApp1
             UpdateListView();
         }
 
-            DbOperations db = new DbOperations();
-        private void BtnVardnadshavare_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
             mw.Show();
             this.Close();
         }
-
-        private void LstViewSchema_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
         private void UpdateListView()
         {
-            lstViewSchema.ItemsSource = null;
-
-            lstViewSchema.ItemsSource = db.GetSchemaBarn();
+            DbOperations db = new DbOperations();
+            listView.ItemsSource = null;
+            listView.ItemsSource = db.GetSchemaBarn();
 
         }
     }

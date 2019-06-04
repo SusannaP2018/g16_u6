@@ -6,23 +6,18 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="SchemaWin" Height="450" Width="800">
-    <Grid Margin="0,0,3.6,2">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="786*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="5*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="btnVardnadshavare" Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="569,346,0,0" VerticalAlignment="Top" Width="215" Height="46" Click="BtnVardnadshavare_Click"/>
-        <ListView x:Name="lstViewSchema" HorizontalAlignment="Left" Height="325" Margin="10,21,0,0" VerticalAlignment="Top" Width="766" SelectionChanged="LstViewSchema_SelectionChanged">
+    <Grid>
+        <Button x:Name="btnVårdnadshavare" Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="533,343,0,0" VerticalAlignment="Top" Width="238" Height="41" Click="Button_Click"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="328" Margin="10,10,0,0" VerticalAlignment="Top" Width="774">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header =" Närvarande" Width ="120" DisplayMemberBinding ="{Binding Narvarodag}"  />
-                    <GridViewColumn Header =" Ledig" Width ="120" DisplayMemberBinding ="{Binding LedigDag}"  />
+                    <GridViewColumn Header="Narvarande" Width="130" DisplayMemberBinding="{Binding Narvarodag}"/>
+                    <GridViewColumn Header="Ledig" Width="130" DisplayMemberBinding="{Binding LedigDag}"/>
 
-                    <GridViewColumn Header =" Sjuk" Width ="120" DisplayMemberBinding ="{Binding Sjukdag}"  />
-                    <GridViewColumn Header =" Frukost" Width ="120" DisplayMemberBinding ="{Binding Frukost}"  />
-                    <GridViewColumn Header =" Hämtas av" Width ="120" DisplayMemberBinding ="{Binding Far_hamta}"  />
-                    <GridViewColumn Header =" BarnID" Width ="120" DisplayMemberBinding ="{Binding Barn_id}"  />
+                    <GridViewColumn Header="Sjuk" Width="130" DisplayMemberBinding="{Binding Sjukdag}"/>
+                    <GridViewColumn Header="Frukost" Width="130" DisplayMemberBinding="{Binding Frukost}"/>
+                    <GridViewColumn Header="Hämtas av" Width="130" DisplayMemberBinding="{Binding Far_hamta}"/>
+                    <GridViewColumn Header="Barn_id" Width="130" DisplayMemberBinding="{Binding Barn_id}"/>
                 </GridView>
             </ListView.View>
         </ListView>

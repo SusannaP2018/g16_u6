@@ -83,6 +83,9 @@
       <DependentUpon>personalWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Schema.cs" />
+    <Compile Include="SchemaWin.xaml.cs">
+      <DependentUpon>SchemaWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vardnadshavare.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="personalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SchemaWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

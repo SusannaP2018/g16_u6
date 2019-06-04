@@ -146,21 +146,28 @@ namespace WpfApp1
             
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnSchema_Click(object sender, RoutedEventArgs e)
         {
-
-            List<Schema> schemas = db.GetSchemaBarn();
             SchemaWin sw = new SchemaWin();
             sw.Show();
             this.Close();
-
         }
 
-        private void btnClickSchedule(object sender, RoutedEventArgs e)
-        {
-            SchemalaggningWindow pw = new SchemalaggningWindow();
-            pw.Show();
-            this.Close();
-        }
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+
+        //    List<Schema> schemas = db.GetSchemaBarn();
+        //    SchemaWin sw = new SchemaWin();
+        //    sw.Show();
+        //    this.Close();
+
+        //}
+
+        //private void btnClickSchedule(object sender, RoutedEventArgs e)
+        //{
+        //    SchemalaggningWindow pw = new SchemalaggningWindow();
+        //    pw.Show();
+        //    this.Close();
+        //}
     }
 }
