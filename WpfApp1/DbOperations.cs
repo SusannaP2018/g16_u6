@@ -96,21 +96,51 @@ namespace WpfApp1
                     {
                         while (reader.Read())
                         {
-                            s = new Schema();
-                            if (!reader.IsDBNull(0))
+                            
+                                s = new Schema();
+                                if (!reader.IsDBNull(0))
+                                {
+                                    s.Narvarodag = reader.GetDateTime(0);
+                                }
+                                else
+                                {
+                                    s.Narvarodag = s.Narvarodag.GetValueOrDefault();
+                                }
+                            if (!reader.IsDBNull(1))
                             {
-                                s.Narvarodag = reader.GetDateTime(0);
+                                    s.LedigDag = reader.GetDateTime(1);
+
                             }
                             else
                             {
-                             //   s.Narvarodag = 2011,06,10;
+                                    s.LedigDag = s.LedigDag.GetValueOrDefault();
+
                             }
+                            if (!reader.IsDBNull(2))
+                            {
+                                    s.Sjukdag = reader.GetDateTime(2);
+
+                            }
+                            else
+                            {
+                                    s.Sjukdag = s.LedigDag.GetValueOrDefault();
+
+                            }
+
+                                    s.Frukost = reader.GetBoolean(3);
+                                    s.Far_hamta = reader.GetString(4);
+                                    s.Barn_id = reader.GetInt32(5);
+                            scheman.Add(s);
+                           
+                            }
+
+                            
                         }
                         return scheman;
                     }
                 }
             }      
-        }
+        
 
 
         //För att hämta all personal
