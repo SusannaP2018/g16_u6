@@ -86,6 +86,9 @@
     <Compile Include="SchemaWin.xaml.cs">
       <DependentUpon>SchemaWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="schema_personalvy.xaml.cs">
+      <DependentUpon>schema_personalvy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vardnadshavare.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SchemaWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="schema_personalvy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

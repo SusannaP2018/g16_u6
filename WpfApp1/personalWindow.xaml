@@ -25,9 +25,11 @@
             </ListView.View>
         </ListView>
 
-        <ListBox x:Name="listBoxVard" HorizontalAlignment="Left" Height="90" Margin="293,236,0,0" VerticalAlignment="Top" Width="292"/>
-        <Label x:Name="label2" Content="Vårdnadshavare till" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBarnNamn" Content="" HorizontalAlignment="Left" Margin="407,210,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBoxVard" HorizontalAlignment="Left" Height="54" Margin="33,301,0,0" VerticalAlignment="Top" Width="292"/>
+        <Label x:Name="label2" Content="Vårdnadshavare till" HorizontalAlignment="Left" Margin="60,270,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBarnNamn" Content="" HorizontalAlignment="Left" Margin="170,270,0,0" VerticalAlignment="Top"/>
+        
+        <Button Content="Schema" HorizontalAlignment="Left" Margin="575,290,0,0" VerticalAlignment="Top" Width="190" Height="40" Click="Btn_SchemaWindow"/>
 
     </Grid>
 </Window>

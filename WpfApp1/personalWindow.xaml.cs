@@ -71,16 +71,16 @@ namespace WpfApp1
         {
             selectedBarn = (Barn)listViewBarn.SelectedItem;
             lblBarnNamn.Content = selectedBarn.FirstName.ToUpper();
-            try
-            {
-                listBoxVard.ItemsSource = null;
-                listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.LastName);
-            }
-            catch (PostgresException ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
+
+            listBoxVard.ItemsSource = null;
+            listBoxVard.ItemsSource = db.GetVhByBarn();
+        }
+
+        private void Btn_SchemaWindow(object sender, RoutedEventArgs e)
+        {
+            schema_personalvy sp = new schema_personalvy();
+            sp.Show();
+            this.Close();
         }
     }
 }
