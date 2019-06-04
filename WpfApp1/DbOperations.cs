@@ -10,28 +10,6 @@ namespace WpfApp1
 {
     class DbOperations
     {
-
-        // Metod som returnerar ett BARN ID
-        public int BarnIDForSchema(int id)
-        {
-            return id;
-        }
-        // Metod som hämtar ett valt barns SCHEMA
-        public List<Schema> GetOneBarnSchema(int id)
-        {
-            List<Schema> schemas = GetSchemaBarn();
-            List<Schema> barnSchema = new List<Schema>();
-
-            foreach (var s in schemas)
-            {
-                if (id.Equals(s.Barn_id))
-                {
-                    barnSchema.Add(s);
-                }
-            }
-            return barnSchema;
-        }
-
         //metod som hämtar alla VARDNADSHAVAR från VARDNADSHAVARETABELLEN
         public List<Vardnadshavare> GetAllVardnadshavare()
         {
@@ -329,6 +307,40 @@ namespace WpfApp1
                 return barn;
             }
         }
+
+        //metod som hämtar VH för ett barn (funkar ej!!!!!)
+        public List<Vardnadshavare> GetVhByBarn()
+        {
+            Vardnadshavare vh;
+            List<Vardnadshavare> vardnadshavare = new List<Vardnadshavare>();
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM vardnadshavare";
+
+                    using (var reader = cmd.ExecuteReader())
+
+                        while (reader.Read())
+                        {
+                            vh = new Vardnadshavare()
+                            {
+                                Id = reader.GetInt32(0),
+                                FirstName = reader.GetString(1),
+                                LastName = reader.GetString(2),
+                                Telephone = reader.GetString(3)
+                            };
+                            vardnadshavare.Add(vh);                   
+                        }
+                }
+                return vardnadshavare;
+            }
+        }
+        
 
         //metod som hämtar alla barn till en VH(vh)
         public List<Barn> GetBarnByVH(int vh)
