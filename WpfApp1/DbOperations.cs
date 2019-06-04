@@ -10,6 +10,32 @@ namespace WpfApp1
 {
     class DbOperations
     {
+       
+
+        // Metod som returnerar ett BARN ID
+        public int BarnIDForSchema(int id)
+        {
+            return id;
+        }
+        // Metod som hämtar ett valt barns SCHEMA
+        public List<Schema> GetOneBarnSchema(int id)
+        {
+            List<Schema> schemas = GetSchemaBarn();
+            List<Schema> barnSchema = new List<Schema>();
+
+            foreach (var s in schemas)
+            {
+                if (id.Equals(s.Barn_id))
+                {
+                    barnSchema.Add(s);
+                }
+            }
+            return barnSchema;
+        }
+
+        //metod som hämtar alla VARDNADSHAVAR från VARDNADSHAVARETABELLEN
+
+
         //metod som hämtar alla VARDNADSHAVARE från VARDNADSHAVARETABELLEN
         public List<Vardnadshavare> GetAllVardnadshavare()
         {

@@ -148,38 +148,39 @@ namespace WpfApp1
             this.Close();
             
         }
-        // avmarkeras
-        //private void BtnSchema_Click(object sender, RoutedEventArgs e)
-        //{
-        //    int nr = 0;
-        //    Barn selectedbarn;
-        //    selectedbarn = (Barn)cmbBoxBarn.SelectedItem;
-        //   nr = db.BarnIDForSchema(selectedbarn.Id);
-            
+        
+        private void BtnSchema_Click(object sender, RoutedEventArgs e)
+        {
+            int nr = 0;
+            Barn selectedbarn;
+            selectedbarn = (Barn)cmbBoxBarn.SelectedItem;
+            nr = db.BarnIDForSchema(selectedbarn.Id);
 
-        //    SchemaWin sw = new SchemaWin();
-        //    sw.Show();
-        //    sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
-        //    this.Close();
-        //}
 
-        //private void BtnTest1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    List<Schema> schemas = db.GetOneBarnSchema(3);
-        //}
+            SchemaWin sw = new SchemaWin();
+            sw.Show();
+            sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
+            this.Close();
+        }
 
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
+        private void BtnTest1_Click(object sender, RoutedEventArgs e)
+        {
+            List<Schema> schemas = db.GetOneBarnSchema(3);
+        }
 
-        //    List<Schema> schemas = db.GetSchemaBarn();
-        //    SchemaWin sw = new SchemaWin();
-        //    sw.Show();
-        //    this.Close();
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
 
-        //}
+            List<Schema> schemas = db.GetSchemaBarn();
+            SchemaWin sw = new SchemaWin();
+            sw.Show();
+            this.Close();
+           
+        }
 
         //private void btnClickSchedule(object sender, RoutedEventArgs e)
         //{
+            
         //    SchemalaggningWindow pw = new SchemalaggningWindow();
         //    pw.Show();
         //    this.Close();
