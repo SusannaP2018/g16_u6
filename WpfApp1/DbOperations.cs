@@ -10,7 +10,7 @@ namespace WpfApp1
 {
     class DbOperations
     {
-        //metod som hämtar alla VARDNADSHAVAR från VARDNADSHAVARETABELLEN
+        //metod som hämtar alla VARDNADSHAVARE från VARDNADSHAVARETABELLEN
         public List<Vardnadshavare> GetAllVardnadshavare()
         {
             

@@ -18,7 +18,7 @@ namespace WpfApp1
         
         public override string ToString()
         {
-            return Narvarodag + " " + LedigDag + "" + Sjukdag + "" + Frukost + "" + Far_hamta +""+ Barn_id;
+            return Narvarodag + " " + LedigDag + " " + Sjukdag + " " + Frukost + " " + Far_hamta + " " + Barn_id;
         }
 
 

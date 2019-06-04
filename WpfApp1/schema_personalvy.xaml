@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.schema_personalvy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="schema_personalvy" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <ListView x:Name="lvSchemaPersonalVy" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Narvarande" Width="130" DisplayMemberBinding="{Binding Narvarodag}"/>
+                    <GridViewColumn Header="Ledig" Width="130" DisplayMemberBinding="{Binding LedigDag}"/>
+
+                    <GridViewColumn Header="Sjuk" Width="130" DisplayMemberBinding="{Binding Sjukdag}"/>
+                    <GridViewColumn Header="Frukost" Width="130" DisplayMemberBinding="{Binding Frukost}"/>
+                    <GridViewColumn Header="Hämtas av" Width="130" DisplayMemberBinding="{Binding Far_hamta}"/>
+                    <GridViewColumn Header="Barn_id" Width="130" DisplayMemberBinding="{Binding Barn_id}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

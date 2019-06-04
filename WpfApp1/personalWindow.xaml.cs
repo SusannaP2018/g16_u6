@@ -27,9 +27,10 @@ namespace WpfApp1
             listBoxPersonal.ItemsSource = null;
             listBoxPersonal.ItemsSource = personal;
         }
-        Personal p;
+
         DbOperations db = new DbOperations();
         Personal selectedPersonal;
+        Barn selectedBarn;
 
         private void btn_vardWindow(object sender, RoutedEventArgs e)
         {
@@ -45,35 +46,41 @@ namespace WpfApp1
 
             if(selectedPersonal.avdelning == 1)
             {
-                listBoxBarn.ItemsSource = null;
-                listBoxBarn.ItemsSource = db.GetBarnAvdelning1();
+                listViewBarn.ItemsSource = null;
+                listViewBarn.ItemsSource = db.GetBarnAvdelning1();
             }
             else if(selectedPersonal.avdelning == 2)
             {
-                listBoxBarn.ItemsSource = null;
-                listBoxBarn.ItemsSource = db.GetBarnAvdelning2();
+                listViewBarn.ItemsSource = null;
+                listViewBarn.ItemsSource = db.GetBarnAvdelning2();
             }
             else if(selectedPersonal.avdelning == 3)
             {
-                listBoxBarn.ItemsSource = null;
-                listBoxBarn.ItemsSource = db.GetBarnAvdelning3();
+                listViewBarn.ItemsSource = null;
+                listViewBarn.ItemsSource = db.GetBarnAvdelning3();
             }
             else
             {
-                listBoxBarn.ItemsSource = null;
-                listBoxBarn.ItemsSource = db.GetBarnAvdelning4();
+                listViewBarn.ItemsSource = null;
+                listViewBarn.ItemsSource = db.GetBarnAvdelning4();
             }
             
         }
 
-        private void ListBoxBarn_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListViewBarn_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            selectedBarn = (Barn)listViewBarn.SelectedItem;
+            lblBarnNamn.Content = selectedBarn.FirstName.ToUpper();
 
+            listBoxVard.ItemsSource = null;
+            listBoxVard.ItemsSource = db.GetVhByBarn();
         }
 
-        private void ListViewPersonal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Btn_SchemaWindow(object sender, RoutedEventArgs e)
         {
-            
+            schema_personalvy sp = new schema_personalvy();
+            sp.Show();
+            this.Close();
         }
     }
 }
