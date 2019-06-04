@@ -64,7 +64,7 @@ namespace WpfApp1
         private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
             selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
-
+            
             
             List<Barn> barns = db.GetAllBarn();
 
@@ -89,17 +89,7 @@ namespace WpfApp1
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-            List<Schema> schemas = new List<Schema>();
-            Schema s = new Schema()
-            {
-               
-                Frukost = true
-                
-            };
-            schemas.Add(s);
+        
 
 
           //  DbOperations db = new DbOperations();
@@ -115,8 +105,7 @@ namespace WpfApp1
           //  {
 
           //      MessageBox.Show(ex.Message);
-          //  }
-        }
+
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -154,6 +143,17 @@ namespace WpfApp1
             personalWindow pw = new personalWindow();
             pw.Show();
             this.Close();
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            List<Schema> schemas = db.GetSchemaBarn();
+            SchemaWin sw = new SchemaWin();
+            sw.Show();
+            this.Close();
+
         }
     }
 }

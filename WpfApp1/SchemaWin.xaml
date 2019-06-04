@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfApp1.SchemaWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="SchemaWin" Height="450" Width="800">
+    <Grid Margin="0,0,3.6,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="786*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnVardnadshavare" Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="569,346,0,0" VerticalAlignment="Top" Width="215" Height="46" Click="BtnVardnadshavare_Click"/>
+        <ListView x:Name="lstViewSchema" HorizontalAlignment="Left" Height="325" Margin="10,21,0,0" VerticalAlignment="Top" Width="766" SelectionChanged="LstViewSchema_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header =" Närvarande" Width ="120" DisplayMemberBinding ="{Binding Narvarodag}"  />
+                    <GridViewColumn Header =" Ledig" Width ="120" DisplayMemberBinding ="{Binding LedigDag}"  />
+
+                    <GridViewColumn Header =" Sjuk" Width ="120" DisplayMemberBinding ="{Binding Sjukdag}"  />
+                    <GridViewColumn Header =" Frukost" Width ="120" DisplayMemberBinding ="{Binding Frukost}"  />
+                    <GridViewColumn Header =" Hämtas av" Width ="120" DisplayMemberBinding ="{Binding Far_hamta}"  />
+                    <GridViewColumn Header =" BarnID" Width ="120" DisplayMemberBinding ="{Binding Barn_id}"  />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
