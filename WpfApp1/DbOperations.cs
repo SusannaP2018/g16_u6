@@ -10,7 +10,7 @@ namespace WpfApp1
 {
     class DbOperations
     {
-        //metod som hämtar alla VARDNADSHAVAR från VARDNADSHAVARETABELLEN
+        //metod som hämtar alla VARDNADSHAVARE från VARDNADSHAVARETABELLEN
         public List<Vardnadshavare> GetAllVardnadshavare()
         {
             Vardnadshavare v;
@@ -276,6 +276,45 @@ namespace WpfApp1
                 return barn;
             }
         }
+
+        //metod som hämtar VH för ett barn
+        public List<Vardnadshavare> GetVhByBarn(string lastname)
+        {
+            Vardnadshavare vh;
+            List<Vardnadshavare> vardnadshavare = new List<Vardnadshavare>();
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT * FROM vardnadshavare v " +
+                                    "JOIN barn_vh bvh ON bvh.vh_id = v.vh_id " +
+                                    "JOIN barn b ON bvh.barn_id = b.barn_id " +
+                                    "WHERE v.efternamn = b.efternamn";
+
+                    cmd.Parameters.AddWithValue("b.efternamn", lastname);
+
+                    using (var reader = cmd.ExecuteReader())
+
+                        while (reader.Read())
+                        {
+                            vh = new Vardnadshavare()
+                            {
+                                Id = reader.GetInt32(0),
+                                FirstName = reader.GetString(1),
+                                LastName = reader.GetString(2),
+                                Telephone = reader.GetString(3)
+                            };
+                            vardnadshavare.Add(vh);
+                        }
+                }
+                return vardnadshavare;
+            }
+        }
+        
 
         //metod som hämtar alla barn till en VH(vh)
         public List<Barn> GetBarnByVH(int vh)

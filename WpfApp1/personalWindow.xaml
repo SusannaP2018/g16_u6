@@ -7,20 +7,27 @@
         mc:Ignorable="d"
         Title="personalWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="570,345,0,0" VerticalAlignment="Top" Width="190" Click="btn_vardWindow" Height="40"/>
+        <Button Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="575,350,0,0" VerticalAlignment="Top" Width="190" Click="btn_vardWindow" Height="40"/>
         <ListBox x:Name="listBoxPersonal" HorizontalAlignment="Left" Height="150" Margin="33,55,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBoxPersonal_SelectionChanged"/>
         <Label x:Name="label" Content="Personallista" HorizontalAlignment="Left" Margin="104,24,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBoxBarn" HorizontalAlignment="Left" Height="155" Margin="288,55,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBoxBarn_SelectionChanged"/>
         <Label x:Name="label1" Content="Barn på avdelning " HorizontalAlignment="Left" Margin="341,19,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblAvdelning" Content="" HorizontalAlignment="Left" Margin="445,19,0,0" VerticalAlignment="Top"/>
-        <ListView x:Name="listViewPersonal" HorizontalAlignment="Left" Height="100" Margin="28,285,0,0" VerticalAlignment="Top" Width="232" SelectionChanged="ListViewPersonal_SelectionChanged">
+        <Label x:Name="lblAvdelning" Content="" HorizontalAlignment="Left" Margin="440,19,0,0" VerticalAlignment="Top"/>
+
+        <ListView x:Name="listViewBarn" ItemsSource="{Binding barn}" HorizontalAlignment="Left" Height="150" Margin="293,55,0,0" VerticalAlignment="Top" Width="457" SelectionChanged="ListViewBarn_SelectionChanged_1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Namn" Width="110"/>
-                    <GridViewColumn Header="Avdelning" Width="110"/>
+                    <GridViewColumn Header="ID" Width="91" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Förnamn" Width="91" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Efternamn" Width="91" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Lokal" Width="91" DisplayMemberBinding="{Binding Lokal}"/>
+                    <GridViewColumn Header="Avdelning" Width="91" DisplayMemberBinding="{Binding Avdelning}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <ListBox x:Name="listBoxVard" HorizontalAlignment="Left" Height="90" Margin="293,236,0,0" VerticalAlignment="Top" Width="292"/>
+        <Label x:Name="label2" Content="Vårdnadshavare till" HorizontalAlignment="Left" Margin="305,210,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBarnNamn" Content="" HorizontalAlignment="Left" Margin="407,210,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
