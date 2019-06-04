@@ -79,6 +79,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Barn.cs" />
+    <Compile Include="personalWindow.xaml.cs">
+      <DependentUpon>personalWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Schema.cs" />
     <Compile Include="Vardnadshavare.cs" />
     <Page Include="MainWindow.xaml">
@@ -94,6 +97,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="personalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Personal.cs" />

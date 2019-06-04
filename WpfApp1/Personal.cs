@@ -11,10 +11,12 @@ namespace WpfApp1
         public int id { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
+        public int avdelning { get; set; }
+
 
         public override string ToString()
         {
-            return id + " " + firstname + "" + lastname;
+            return firstname.ToUpper() + " " + lastname.ToUpper() + " - Avdelning " + avdelning;
         }
     }
 }

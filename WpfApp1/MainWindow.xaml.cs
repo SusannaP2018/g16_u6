@@ -100,6 +100,8 @@ namespace WpfApp1
                 
             };
             schemas.Add(s);
+
+
           //  DbOperations db = new DbOperations();
 
           // // int id = Convert.ToInt32(idTextBox.Text);
@@ -147,6 +149,11 @@ namespace WpfApp1
          //   db.DeletePerson(id);
         }
 
-       
+        private void btn_personalWindow(object sender, RoutedEventArgs e)
+        {
+            personalWindow pw = new personalWindow();
+            pw.Show();
+            this.Close();
+        }
     }
 }

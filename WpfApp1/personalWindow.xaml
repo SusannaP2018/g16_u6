@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp1.personalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="personalWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="570,345,0,0" VerticalAlignment="Top" Width="190" Click="btn_vardWindow" Height="40"/>
+        <ListBox x:Name="listBoxPersonal" HorizontalAlignment="Left" Height="150" Margin="33,55,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBoxPersonal_SelectionChanged"/>
+        <Label x:Name="label" Content="Personallista" HorizontalAlignment="Left" Margin="104,24,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBoxBarn" HorizontalAlignment="Left" Height="155" Margin="288,55,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBoxBarn_SelectionChanged"/>
+        <Label x:Name="label1" Content="Barn på avdelning " HorizontalAlignment="Left" Margin="341,19,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblAvdelning" Content="" HorizontalAlignment="Left" Margin="445,19,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="listViewPersonal" HorizontalAlignment="Left" Height="100" Margin="28,285,0,0" VerticalAlignment="Top" Width="232" SelectionChanged="ListViewPersonal_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Namn" Width="110"/>
+                    <GridViewColumn Header="Avdelning" Width="110"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

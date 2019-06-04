@@ -18,29 +18,30 @@ namespace WpfApp1
 
             string stmt = "SELECT * FROM vardnadshavare";
 
-            var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString);
-            conn.Open();
-
-            var cmd = new NpgsqlCommand(stmt, conn);
-
-            var reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+                
             {
-                v = new Vardnadshavare()
-                {
-                    Id = reader.GetInt32(0),
-                    FirstName = reader.GetString(1),
-                    LastName = reader.GetString(2),
-                    Telephone = reader.GetString(3)
-                    
-                };
-                vardnadshavares.Add(v);
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+
+                using (var reader = cmd.ExecuteReader())
+
+                    while (reader.Read())
+                    {
+                        v = new Vardnadshavare()
+                        {
+                            Id = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            Telephone = reader.GetString(3)
+
+                        };
+                        vardnadshavares.Add(v);
+                    }
+
+                return vardnadshavares;
             }
-
-            return vardnadshavares;
-
         }
         //metod som hämtar alla BARN från BARNTABELLEN
 
@@ -51,31 +52,30 @@ namespace WpfApp1
 
             string stmt = "SELECT * FROM barn";
 
-            var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString);
-            conn.Open();
-
-            var cmd = new NpgsqlCommand(stmt, conn);
-
-            var reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+                
             {
-                b = new Barn()
-                {
-                    Id = reader.GetInt32(0),
-                    FirstName = reader.GetString(1),
-                    LastName = reader.GetString(2),
-                    Lokal = reader.GetString(3),
-                    Avdelning = reader.GetInt32(4)
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
 
+                using (var reader = cmd.ExecuteReader())
 
-                };
-                barns.Add(b);
+                    while (reader.Read())
+                    {
+                        b = new Barn()
+                        {
+                            Id = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            Lokal = reader.GetString(3),
+                            Avdelning = reader.GetInt32(4)
+                        };
+                        barns.Add(b);
+                    }
+
+                return barns;
             }
-
-            return barns;
-
         }
         // Metod som hämtar barnens SCHEMA
         public List<Schema> GetSchemaBarn()
@@ -110,20 +110,174 @@ namespace WpfApp1
                         }
                         return scheman;
                     }
-
                 }
-
-
-
-            }
-
-
-                
-
-
-
+            }      
         }
 
+
+        //För att hämta all personal
+        public List<Personal> GetAllPersonal()
+        {
+            Personal p;
+            List<Personal> personal = new List<Personal>();
+
+            string stmt = "SELECT * FROM personal";
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+
+                using (var reader = cmd.ExecuteReader())
+
+                    while (reader.Read())
+                    {
+                        p = new Personal()
+                        {
+                            id = reader.GetInt32(0),
+                            firstname = reader.GetString(1),
+                            lastname = reader.GetString(2),
+                            avdelning = reader.GetInt32(3)
+
+
+                        };
+                        personal.Add(p);
+                    }
+
+                return personal;
+            }
+        }
+
+        //Hämta barn per avdelning
+        public List<Barn> GetBarnAvdelning1()
+        {
+            Barn b;
+            List<Barn> barn = new List<Barn>();
+
+            string stmt = "SELECT * FROM barn WHERE avdelning = 1";
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+
+                using (var reader = cmd.ExecuteReader())
+
+                    while (reader.Read())
+                    {
+                        b = new Barn()
+                        {
+                            Id = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            Lokal = reader.GetString(3),
+                            Avdelning = reader.GetInt32(4)
+                        };
+                        barn.Add(b);
+                    }
+
+                return barn;
+            }
+        }
+        public List<Barn> GetBarnAvdelning2()
+        {
+            Barn b;
+            List<Barn> barn = new List<Barn>();
+
+            string stmt = "SELECT * FROM barn WHERE avdelning = 2";
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+
+                using (var reader = cmd.ExecuteReader())
+
+                    while (reader.Read())
+                    {
+                        b = new Barn()
+                        {
+                            Id = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            Lokal = reader.GetString(3),
+                            Avdelning = reader.GetInt32(4)
+                        };
+                        barn.Add(b);
+                    }
+
+                return barn;
+            }
+        }
+        public List<Barn> GetBarnAvdelning3()
+        {
+            Barn b;
+            List<Barn> barn = new List<Barn>();
+
+            string stmt = "SELECT * FROM barn WHERE avdelning = 3";
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+
+                using (var reader = cmd.ExecuteReader())
+
+                    while (reader.Read())
+                    {
+                        b = new Barn()
+                        {
+                            Id = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            Lokal = reader.GetString(3),
+                            Avdelning = reader.GetInt32(4)
+                        };
+                        barn.Add(b);
+                    }
+
+                return barn;
+            }
+        }
+        public List<Barn> GetBarnAvdelning4()
+        {
+            Barn b;
+            List<Barn> barn = new List<Barn>();
+
+            string stmt = "SELECT * FROM barn WHERE avdelning = 4";
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+
+                using (var reader = cmd.ExecuteReader())
+
+                    while (reader.Read())
+                    {
+                        b = new Barn()
+                        {
+                            Id = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            Lokal = reader.GetString(3),
+                            Avdelning = reader.GetInt32(4)
+                        };
+                        barn.Add(b);
+                    }
+
+                return barn;
+            }
+        }
 
         /*
            //metod som hämtar en person baserat på ID
