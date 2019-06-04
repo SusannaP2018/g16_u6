@@ -148,25 +148,25 @@ namespace WpfApp1
             this.Close();
             
         }
-
-        private void BtnSchema_Click(object sender, RoutedEventArgs e)
-        {
-            int nr = 0;
-            Barn selectedbarn;
-            selectedbarn = (Barn)cmbBoxBarn.SelectedItem;
-           nr = db.BarnIDForSchema(selectedbarn.Id);
+        // avmarkeras
+        //private void BtnSchema_Click(object sender, RoutedEventArgs e)
+        //{
+        //    int nr = 0;
+        //    Barn selectedbarn;
+        //    selectedbarn = (Barn)cmbBoxBarn.SelectedItem;
+        //   nr = db.BarnIDForSchema(selectedbarn.Id);
             
 
-            SchemaWin sw = new SchemaWin();
-            sw.Show();
-            sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
-            this.Close();
-        }
+        //    SchemaWin sw = new SchemaWin();
+        //    sw.Show();
+        //    sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
+        //    this.Close();
+        //}
 
-        private void BtnTest1_Click(object sender, RoutedEventArgs e)
-        {
-            List<Schema> schemas = db.GetOneBarnSchema(3);
-        }
+        //private void BtnTest1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    List<Schema> schemas = db.GetOneBarnSchema(3);
+        //}
 
         //private void Button_Click_1(object sender, RoutedEventArgs e)
         //{
