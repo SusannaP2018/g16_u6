@@ -8,7 +8,7 @@
         Title="SchemaWin" Height="450" Width="800">
     <Grid>
         <Button x:Name="btnVårdnadshavare" Content="Vårdnadshavare" HorizontalAlignment="Left" Margin="533,343,0,0" VerticalAlignment="Top" Width="238" Height="41" Click="Button_Click"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="328" Margin="10,10,0,0" VerticalAlignment="Top" Width="774">
+        <ListView x:Name="lstviewSchema" HorizontalAlignment="Left" Height="328" Margin="10,10,0,0" VerticalAlignment="Top" Width="774">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Narvarande" Width="130" DisplayMemberBinding="{Binding Narvarodag}"/>

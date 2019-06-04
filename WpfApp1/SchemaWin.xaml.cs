@@ -22,7 +22,7 @@ namespace WpfApp1
         public SchemaWin()
         {
             InitializeComponent();
-            UpdateListView();
+           // UpdateListView();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,8 +34,8 @@ namespace WpfApp1
         private void UpdateListView()
         {
             DbOperations db = new DbOperations();
-            listView.ItemsSource = null;
-            listView.ItemsSource = db.GetSchemaBarn();
+            lstviewSchema.ItemsSource = null;
+            lstviewSchema.ItemsSource = db.GetSchemaBarn();
 
         }
     }

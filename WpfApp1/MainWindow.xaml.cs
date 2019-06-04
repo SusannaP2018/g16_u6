@@ -34,7 +34,8 @@ namespace WpfApp1
 
             DbOperations db = new DbOperations();
         Vardnadshavare selectedVardnadshavare;
-        Barn selectedBarn;
+        
+        Schema schema = new Schema();
         
         //Klicka här för att visa alla VÅRDNADSHAVARE i listboxen
         private void Button_Click(object sender, RoutedEventArgs e)        {
@@ -73,10 +74,12 @@ namespace WpfApp1
                 
                 if (selectedVardnadshavare.Id == b.Id)
                 {
-                    cmbBoxBarn.Items.Add(b.FirstName);
+                    cmbBoxBarn.Items.Add(b);
+                    
+
                 }
 
-                
+
             }
 
 
@@ -148,9 +151,21 @@ namespace WpfApp1
 
         private void BtnSchema_Click(object sender, RoutedEventArgs e)
         {
+            int nr = 0;
+            Barn selectedbarn;
+            selectedbarn = (Barn)cmbBoxBarn.SelectedItem;
+           nr = db.BarnIDForSchema(selectedbarn.Id);
+            
+
             SchemaWin sw = new SchemaWin();
             sw.Show();
+            sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
             this.Close();
+        }
+
+        private void BtnTest1_Click(object sender, RoutedEventArgs e)
+        {
+            List<Schema> schemas = db.GetOneBarnSchema(3);
         }
 
         //private void Button_Click_1(object sender, RoutedEventArgs e)
