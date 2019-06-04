@@ -83,8 +83,8 @@
       <DependentUpon>personalWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Schema.cs" />
-    <Compile Include="SchemaWin.xaml.cs">
-      <DependentUpon>SchemaWin.xaml</DependentUpon>
+    <Compile Include="SchemalaggningWindow.xaml.cs">
+      <DependentUpon>SchemalaggningWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vardnadshavare.cs" />
     <Page Include="MainWindow.xaml">
@@ -104,7 +104,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SchemaWin.xaml">
+    <Page Include="SchemalaggningWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

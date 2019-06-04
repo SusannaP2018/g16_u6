@@ -155,5 +155,12 @@ namespace WpfApp1
             this.Close();
 
         }
+
+        private void btnClickSchedule(object sender, RoutedEventArgs e)
+        {
+            SchemalaggningWindow pw = new SchemalaggningWindow();
+            pw.Show();
+            this.Close();
+        }
     }
 }
