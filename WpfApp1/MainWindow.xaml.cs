@@ -71,13 +71,13 @@ namespace WpfApp1
 
             foreach (var b in barns)
             {
-                
-                if (selectedVardnadshavare.Id == b.Id)
+                if (cmbBoxBarn.Items.IsEmpty && selectedVardnadshavare.Id == b.Id)
                 {
                     cmbBoxBarn.Items.Add(b);
-                    
+                
 
                 }
+               
 
 
             }
@@ -165,7 +165,7 @@ namespace WpfApp1
 
         private void BtnTest1_Click(object sender, RoutedEventArgs e)
         {
-            List<Schema> schemas = db.GetOneBarnSchema(3);
+            cmbBoxBarn.Items.Clear();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
