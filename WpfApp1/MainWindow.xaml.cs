@@ -186,19 +186,7 @@ namespace WpfApp1
         //    this.Close();
         //}
 
-        //private List<Schema> AndratSchema(List<Schema> S)
-        //{
-        //    DateTime dateTime;
-          
-        //    foreach (var b in S)
-        //    {
-        //        if (b.LedigDag.Value == )
-        //        {
-
-        //        }
-        //    }
-
-        //}
+        
 
 
     }

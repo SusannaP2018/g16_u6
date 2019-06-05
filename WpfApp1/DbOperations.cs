@@ -116,7 +116,7 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "select narvaro.narvarodag, narvaro.ledigdag, narvaro.sjukdag, dagsschema.frukost, dagsschema.far_hamta, narvaro.barn_id from narvaro inner join dagsschema on narvaro.barn_id = dagsschema.barn_id";
+                    cmd.CommandText = "select narvaro.narvarodag, narvaro.ledigdag, narvaro.sjukdag, dagsschema.frukost, dagsschema.far_hamta, narvaro.barn_id from narvaro full join dagsschema on narvaro.barn_id = dagsschema.barn_id";
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -458,6 +458,7 @@ namespace WpfApp1
             }
         }
 
+        //metod som hämtar det högsta befintliga id numret
         public int narvaroMax()
         {
             int nm;
@@ -470,8 +471,6 @@ namespace WpfApp1
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT MAX(narvaro_id) FROM narvaro; ";
 
-                    //cmd.Parameters.AddWithValue("person_id", id);
-
                     using (var reader = cmd.ExecuteReader())
                     {
                         nm = new int();
@@ -483,9 +482,7 @@ namespace WpfApp1
                 }
                 return nm;
             }
-            //return nm;
         }
-
 
 
         /*
