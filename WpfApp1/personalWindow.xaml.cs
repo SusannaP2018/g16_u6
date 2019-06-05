@@ -72,16 +72,8 @@ namespace WpfApp1
         {
             selectedBarn = (Barn)listViewBarn.SelectedItem;
 
-            if (selectedBarn == null)
-            {
-
-            }
-            else
-            {
-                lblBarnNamn.Content = selectedBarn.FirstName.ToUpper();
-                listBoxVard.ItemsSource = null;
-                listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id);
-            }
+            listBoxVard.ItemsSource = null;
+            listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id); // här
         }
 
         private void Btn_SchemaWindow(object sender, RoutedEventArgs e)
