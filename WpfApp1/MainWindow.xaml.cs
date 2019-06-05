@@ -65,22 +65,11 @@ namespace WpfApp1
         private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
             selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
-            
-            
-            List<Barn> barns = db.GetAllBarn();
-
-            foreach (var b in barns)
-            {
-                if (cmbBoxBarn.Items.IsEmpty && selectedVardnadshavare.Id == b.Id)
-                {
-                    cmbBoxBarn.Items.Add(b);
-                
-
-                }
-               
 
 
-            }
+
+            cmbBoxBarn.ItemsSource = null;
+            cmbBoxBarn.ItemsSource = db.GetBarnByVh(selectedVardnadshavare.Id); // här
 
 
 
@@ -163,10 +152,7 @@ namespace WpfApp1
             this.Close();
         }
 
-        private void BtnTest1_Click(object sender, RoutedEventArgs e)
-        {
-            cmbBoxBarn.Items.Clear();
-        }
+        
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
