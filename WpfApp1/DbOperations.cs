@@ -449,6 +449,34 @@ namespace WpfApp1
             }
         }
 
+        public int narvaroMax()
+        {
+            int nm;
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT MAX(narvaro_id) FROM narvaro; ";
+
+                    //cmd.Parameters.AddWithValue("person_id", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        nm = new int();
+                        while (reader.Read())
+                        {
+                            nm = reader.GetInt32(0);
+                        }
+                    }
+                }
+                return nm;
+            }
+            //return nm;
+        }
+
 
 
         /*
