@@ -428,6 +428,26 @@ namespace WpfApp1
             }
         }
 
+        //metod för att ändra tabellen
+        public void UpdateNarvaroJa(int barn_id,, int personal_id, DateTime narvarodag)
+        {
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO narvaro (barn_id, personal_id, narvarodag)" +
+                        "VALUES (@barn_id, @personal_id, @narvarodag)";
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+                    cmd.Parameters.AddWithValue("personal_id", personal_id);
+                    cmd.Parameters.AddWithValue("narvarodag", narvarodag);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         /*
            //metod som hämtar en person baserat på ID
             public Person GetPersonById(int id)
