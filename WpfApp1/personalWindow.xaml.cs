@@ -71,7 +71,6 @@ namespace WpfApp1
         private void ListViewBarn_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             selectedBarn = (Barn)listViewBarn.SelectedItem;
-            lblBarnNamn.Content = selectedBarn.FirstName.ToUpper();
 
             listBoxVard.ItemsSource = null;
             listBoxVard.ItemsSource = db.GetVhByBarn();
@@ -100,9 +99,7 @@ namespace WpfApp1
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
-            gh = new Gatthem();
-            int id = 0;
-            
+            gh = new Gatthem();  
 
             gh.gattHem = false;
             try
@@ -111,7 +108,7 @@ namespace WpfApp1
                 {
                     gh.gattHem = true;
 
-                    db.Hemgang(id, gh.gattHem, selectedBarn.Id, selectedPersonal.id);
+                    db.Hemgang(db.narvaroMax(), gh.gattHem, selectedBarn.Id, selectedPersonal.id);
 
                     MessageBox.Show("Barn med IDnr: " + selectedBarn.Id + " är registrerad som hemgången av: " + selectedPersonal.firstname.ToUpper());
                 }

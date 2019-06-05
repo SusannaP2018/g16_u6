@@ -449,6 +449,7 @@ namespace WpfApp1
             }
         }
 
+        //metod som hämtar det högsta befintliga id numret
         public int narvaroMax()
         {
             int nm;
@@ -461,8 +462,6 @@ namespace WpfApp1
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT MAX(narvaro_id) FROM narvaro; ";
 
-                    //cmd.Parameters.AddWithValue("person_id", id);
-
                     using (var reader = cmd.ExecuteReader())
                     {
                         nm = new int();
@@ -474,9 +473,7 @@ namespace WpfApp1
                 }
                 return nm;
             }
-            //return nm;
         }
-
 
 
         /*
