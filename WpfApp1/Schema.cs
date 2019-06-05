@@ -8,9 +8,9 @@ namespace WpfApp1
 {
     class Schema
     {
-        public Nullable<DateTime>  Narvarodag { get; set; } 
-        public Nullable<DateTime> LedigDag { get; set; }
-        public Nullable<DateTime> Sjukdag { get; set; }
+        public DateTime?  Narvarodag { get; set; } 
+        public DateTime? LedigDag { get; set; }
+        public DateTime? Sjukdag { get; set; }
         public bool Frukost { get; set; }
         public string Far_hamta { get; set; }
         public int Barn_id { get; set; }

@@ -116,7 +116,7 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "select narvaro.narvarodag, narvaro.ledigdag, narvaro.sjukdag, dagsschema.frukost, dagsschema.far_hamta, narvaro.barn_id from narvaro inner join dagsschema on narvaro.barn_id = dagsschema.barn_id";
+                    cmd.CommandText = "select narvaro.narvarodag, narvaro.ledigdag, narvaro.sjukdag, dagsschema.frukost, dagsschema.far_hamta, narvaro.barn_id from narvaro full join dagsschema on narvaro.barn_id = dagsschema.barn_id";
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
