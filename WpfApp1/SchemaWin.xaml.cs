@@ -40,23 +40,10 @@ namespace WpfApp1
 
         }
 
-        private void btnNarvaroJa_Click(object sender, RoutedEventArgs e) //
-        {
-            DbOperations db = new DbOperations();
-            DateTime date = DateTime.Now;
-            //var chk = chkNarvaro.Checked;
-
-            int nm = db.narvaroMax();
-            nm++;
-
-            //if (chkNarvaro.Checked -= true)
-            //{
-                db.UpdateNarvaroJa(nm, 1, 1, date);
-            //}
 
 
             
 
-        }
+        
     }
 }
