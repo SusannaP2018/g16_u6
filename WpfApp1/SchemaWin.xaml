@@ -21,6 +21,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <CheckBox x:Name="chkNarvaro" Content="Närvarar" HorizontalAlignment="Left" Margin="88,362,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnNarvaroJa" Content="Spara närvaro" HorizontalAlignment="Left" Margin="187,359,0,0" VerticalAlignment="Top" Width="93" Click="btnNarvaroJa_Click"/>
 
     </Grid>
 </Window>
