@@ -411,7 +411,7 @@ namespace WpfApp1
         }
 
         //metod för att ändra tabellen
-        public void UpdateNarvaroJa(int barn_id,, int personal_id, DateTime narvarodag)
+        public void UpdateNarvaroJa(int barn_id, int personal_id, DateTime narvarodag)
         {
             using (var conn = new
             NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
