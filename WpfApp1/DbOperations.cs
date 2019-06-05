@@ -393,10 +393,53 @@ namespace WpfApp1
                 return vardnadshavare;
             }
         }
-        
+
+        public List<Barn> GetBarnByVh(int vh_id)
+        {
+            Barn b;
+            List<Barn> bs = new List<Barn>();
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT " +
+                        "b.barn_id, " +
+                        "b.fornamn, " +
+                        "b.efternamn, " +
+                        "b.lokal, " +
+                        "b.avdelning " +
+                        "FROM barn b " +
+                        "JOIN barn_vh v ON b.barn_id = v.barn_id " +
+                        "WHERE v.vh_id = @vh_id " +
+                        "GROUP BY b.barn_id; ";
+                    cmd.Parameters.AddWithValue("vh_id", vh_id);
+
+                    using (var reader = cmd.ExecuteReader())
+
+                        while (reader.Read())
+                        {
+                            b = new Barn()
+                            {
+                                Id = reader.GetInt32(0),
+                                FirstName = reader.GetString(1),
+                                LastName = reader.GetString(2),
+                                Lokal = reader.GetString(3),
+                                Avdelning = reader.GetInt32(4)
+                            };
+                            bs.Add(b);
+                        }
+                }
+                return bs;
+            }
+        }
+
 
         //metod som hämtar alla barn till en VH(vh)
-        public List<Barn> GetBarnByVH(int vh)
+        public List<Barn> GetBarnByVHOld(int vh)
         {
             Barn b;
             List<Barn> barn = new List<Barn>();
