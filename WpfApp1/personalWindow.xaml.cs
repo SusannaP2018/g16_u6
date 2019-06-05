@@ -74,7 +74,7 @@ namespace WpfApp1
             lblBarnNamn.Content = selectedBarn.FirstName.ToUpper();
 
             listBoxVard.ItemsSource = null;
-            listBoxVard.ItemsSource = db.GetVhByBarn();
+            listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id); // här
         }
 
         private void Btn_SchemaWindow(object sender, RoutedEventArgs e)

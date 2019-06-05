@@ -352,8 +352,8 @@ namespace WpfApp1
             }
         }
 
-        //metod som hämtar VH för ett barn (funkar ej!!!!!)
-        public List<Vardnadshavare> GetVhByBarn()
+        //metod som hämtar VH för ett barn (funkar ej!!!!!) Susanna funderar
+        public List<Vardnadshavare> GetVhByBarn(int barn_id)
         {
             Vardnadshavare vh;
             List<Vardnadshavare> vardnadshavare = new List<Vardnadshavare>();
@@ -365,7 +365,16 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT * FROM vardnadshavare";
+                    cmd.CommandText = "SELECT " +
+                        "v.vh_id, " +
+                        "v.fornamn, " +
+                        "v.efternamn, " +
+                        "v.tel " +
+                        "FROM vardnadshavare v " +
+                        "JOIN barn_vh b ON v.vh_id = b.barn_id " +
+                        "WHERE barn_id = @barn_id " +
+                        "GROUP BY v.vh_id;";
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
 
                     using (var reader = cmd.ExecuteReader())
 
