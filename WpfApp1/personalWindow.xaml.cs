@@ -31,6 +31,7 @@ namespace WpfApp1
         DbOperations db = new DbOperations();
         Personal selectedPersonal;
         Barn selectedBarn;
+        Gatthem gh;
 
         private void btn_vardWindow(object sender, RoutedEventArgs e)
         {
@@ -94,6 +95,35 @@ namespace WpfApp1
                 this.Close();
 
                 sp.lvSchemaPersonalVy.ItemsSource = db.GetOneBarnSchema(nr);
+            }
+        }
+
+        private void BtnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            gh = new Gatthem();
+            int id = 0;
+            
+
+            gh.gattHem = false;
+            try
+            {
+                if (checkBoxHem.IsChecked == true)
+                {
+                    gh.gattHem = true;
+
+                    db.Hemgang(id, gh.gattHem, selectedBarn.Id, selectedPersonal.id);
+
+                    MessageBox.Show("Barn med IDnr: " + selectedBarn.Id + " är registrerad som hemgången av: " + selectedPersonal.firstname.ToUpper());
+                }
+                else
+                {
+                    MessageBox.Show("Bocka i checkrutan om du vill registrera hemgång för barn");
+                }
+            }
+            catch (PostgresException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
             }
         }
     }

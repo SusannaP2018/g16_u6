@@ -333,7 +333,7 @@ namespace WpfApp1
         }
 
         //Metod för att registrera hemgång
-        public void Hemgang(int id, bool b, int barn, int personal)
+        public void Hemgang(int gatt_hem_id, bool gatt_hem, int barn_id, int personal_id)
         {
             using (var conn = new
                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
@@ -342,11 +342,11 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO gatt_hem(gatt_hem_id, gatt_hem, barn_id, personal_id) VALUES (@id, @b, @barn, @personal)";
-                    cmd.Parameters.AddWithValue("gatt_hem_id", id);
-                    cmd.Parameters.AddWithValue("gatt_hem", b );
-                    cmd.Parameters.AddWithValue("barn_id", barn);
-                    cmd.Parameters.AddWithValue("personal_id", personal);
+                    cmd.CommandText = "INSERT INTO gatt_hem(gatt_hem_id, gatt_hem, barn_id, personal_id) VALUES (@gatt_hem_id, @gatt_hem, @barn_id, @personal_id)";
+                    cmd.Parameters.AddWithValue("gatt_hem_id", gatt_hem_id);
+                    cmd.Parameters.AddWithValue("gatt_hem", gatt_hem );
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+                    cmd.Parameters.AddWithValue("personal_id", personal_id);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -429,7 +429,7 @@ namespace WpfApp1
         }
 
         //metod för att ändra tabellen
-        public void UpdateNarvaroJa(int barn_id, int personal_id, DateTime narvarodag)
+        public void UpdateNarvaroJa(int n_id, int barn_id, int personal_id, DateTime narvarodag)
         {
             using (var conn = new
             NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
@@ -438,8 +438,9 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO narvaro (barn_id, personal_id, narvarodag)" +
-                        "VALUES (@barn_id, @personal_id, @narvarodag)";
+                    cmd.CommandText = "INSERT INTO narvaro (narvaro_id, barn_id, personal_id, narvarodag)" +
+                        "VALUES (@narvaro_id, @barn_id, @personal_id, @narvarodag)";
+                    cmd.Parameters.AddWithValue("narvaro_id", n_id);
                     cmd.Parameters.AddWithValue("barn_id", barn_id);
                     cmd.Parameters.AddWithValue("personal_id", personal_id);
                     cmd.Parameters.AddWithValue("narvarodag", narvarodag);
@@ -447,6 +448,36 @@ namespace WpfApp1
                 }
             }
         }
+
+        public int narvaroMax()
+        {
+            int nm;
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT MAX(narvaro_id) FROM narvaro; ";
+
+                    //cmd.Parameters.AddWithValue("person_id", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        nm = new int();
+                        while (reader.Read())
+                        {
+                            nm = reader.GetInt32(0);
+                        }
+                    }
+                }
+                return nm;
+            }
+            //return nm;
+        }
+
+
 
         /*
            //metod som hämtar en person baserat på ID
