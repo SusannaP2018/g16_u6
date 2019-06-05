@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,25 @@ namespace WpfApp1
             DbOperations db = new DbOperations();
             lstviewSchema.ItemsSource = null;
             lstviewSchema.ItemsSource = db.GetSchemaBarn();
+
+        }
+
+        private void btnNarvaroJa_Click(object sender, RoutedEventArgs e) //
+        {
+            DbOperations db = new DbOperations();
+            DateTime date = DateTime.Now;
+            //var chk = chkNarvaro.Checked;
+
+            int nm = db.narvaroMax();
+            nm++;
+
+            //if (chkNarvaro.Checked -= true)
+            //{
+                db.UpdateNarvaroJa(nm, 1, 1, date);
+            //}
+
+
+            
 
         }
     }
