@@ -455,7 +455,7 @@ namespace WpfApp1
             }
         }
 
-        //metod som hämtar det högsta befintliga id numret
+        //metod som hämtar det högsta befintliga id numret från närvarotabellen
         public int narvaroMax()
         {
             int nm;
@@ -467,6 +467,32 @@ namespace WpfApp1
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT MAX(narvaro_id) FROM narvaro; ";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        nm = new int();
+                        while (reader.Read())
+                        {
+                            nm = reader.GetInt32(0);
+                        }
+                    }
+                }
+                return nm;
+            }
+        }
+
+        //metod som hämtar det högsta befintliga id numret från gatt_hem tabellen
+        public int gattHemIDMax()
+        {
+            int nm;
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT MAX(gatt_hem_id) FROM gatt_hem; ";
 
                     using (var reader = cmd.ExecuteReader())
                     {

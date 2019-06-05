@@ -92,9 +92,6 @@ namespace WpfApp1
 
         }
 
-        
-
-
           //  DbOperations db = new DbOperations();
 
           // // int id = Convert.ToInt32(idTextBox.Text);
@@ -131,15 +128,6 @@ namespace WpfApp1
 
         //    db.UpdatePerson(id, fname, lname);
        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-         //   DbOperations db = new DbOperations();
-
-         ////   int id = Convert.ToInt32(idTextBox.Text);
-
-         //   db.DeletePerson(id);
-        }
 
         private void btn_personalWindow(object sender, RoutedEventArgs e)
         {

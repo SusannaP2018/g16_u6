@@ -72,8 +72,16 @@ namespace WpfApp1
         {
             selectedBarn = (Barn)listViewBarn.SelectedItem;
 
-            listBoxVard.ItemsSource = null;
-            listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id); // här
+            if (selectedBarn == null)
+            {
+
+            }
+            else
+            {
+                lblBarnNamn.Content = selectedBarn.FirstName.ToUpper();
+                listBoxVard.ItemsSource = null;
+                listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id);
+            }
         }
 
         private void Btn_SchemaWindow(object sender, RoutedEventArgs e)
@@ -102,15 +110,18 @@ namespace WpfApp1
             gh = new Gatthem();  
 
             gh.gattHem = false;
+
+            int max = db.gattHemIDMax();
+            max++;
             try
             {
                 if (checkBoxHem.IsChecked == true)
                 {
                     gh.gattHem = true;
 
-                    db.Hemgang(db.narvaroMax(), gh.gattHem, selectedBarn.Id, selectedPersonal.id);
+                    db.Hemgang(max, gh.gattHem, selectedBarn.Id, selectedPersonal.id);
 
-                    MessageBox.Show("Barn med IDnr: " + selectedBarn.Id + " är registrerad som hemgången av: " + selectedPersonal.firstname.ToUpper());
+                    MessageBox.Show(selectedBarn.FirstName.ToUpper() + " är registrerad som hemgången av: " + selectedPersonal.firstname.ToUpper());
                 }
                 else
                 {
