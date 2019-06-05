@@ -46,9 +46,12 @@ namespace WpfApp1
             DateTime date = DateTime.Now;
             //var chk = chkNarvaro.Checked;
 
+            int id = 500;
+            id++;
+
             //if (chkNarvaro.Checked -= true)
             //{
-                db.UpdateNarvaroJa(1, 1, date);
+                db.UpdateNarvaroJa(id, 1, 1, date);
             //}
 
 
