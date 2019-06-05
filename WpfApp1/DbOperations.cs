@@ -349,7 +349,7 @@ namespace WpfApp1
             }
         }
 
-        //metod som hämtar VH för ett barn (funkar ej!!!!!) Susanna funderar
+        //metod som hämtar VH för ett barn 
         public List<Vardnadshavare> GetVhByBarn(int barn_id)
         {
             Vardnadshavare vh;
@@ -431,49 +431,6 @@ namespace WpfApp1
                         }
                 }
                 return bs;
-            }
-        }
-
-
-        //metod som hämtar alla barn till en VH(vh)
-        public List<Barn> GetBarnByVHOld(int vh)
-        {
-            Barn b;
-            List<Barn> barn = new List<Barn>();
-
-            string stmt = "SELECT " +
-                        "b.barn_id, " +
-                        "b.fornamn, " +
-                        "b.efternamn, " +
-                        "b.lokal, " +
-                        "b.avdelning " +
-                        "FROM barn b " +
-                        "JOIN barn_vh v ON b.barn_id = v.barn_id " +
-                        "WHERE v.vh_id = 3" +
-                        ";";
-
-            using (var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
-            {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand(stmt, conn))
-
-                using (var reader = cmd.ExecuteReader())
-
-                    while (reader.Read())
-                    {
-                        b = new Barn()
-                        {
-                            Id = reader.GetInt32(0),
-                            FirstName = reader.GetString(1),
-                            LastName = reader.GetString(2),
-                            Lokal = reader.GetString(3),
-                            Avdelning = reader.GetInt32(4)
-                        };
-                        barn.Add(b);
-                    }
-
-                return barn;
             }
         }
 

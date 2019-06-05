@@ -73,7 +73,7 @@ namespace WpfApp1
             selectedBarn = (Barn)listViewBarn.SelectedItem;
 
             listBoxVard.ItemsSource = null;
-            listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id); // här
+            listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id); 
         }
 
         private void Btn_SchemaWindow(object sender, RoutedEventArgs e)
