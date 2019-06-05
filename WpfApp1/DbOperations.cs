@@ -368,8 +368,8 @@ namespace WpfApp1
                         "v.efternamn, " +
                         "v.tel " +
                         "FROM vardnadshavare v " +
-                        "JOIN barn_vh b ON v.vh_id = b.barn_id " +
-                        "WHERE barn_id = @barn_id " +
+                        "JOIN barn_vh b ON v.vh_id = b.vh_id " +
+                        "WHERE b.barn_id = @barn_id " +
                         "GROUP BY v.vh_id;";
                     cmd.Parameters.AddWithValue("barn_id", barn_id);
 
