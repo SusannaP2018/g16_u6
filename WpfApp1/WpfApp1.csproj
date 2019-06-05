@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Barn.cs" />
+    <Compile Include="Gatthem.cs" />
     <Compile Include="personalWindow.xaml.cs">
       <DependentUpon>personalWindow.xaml</DependentUpon>
     </Compile>

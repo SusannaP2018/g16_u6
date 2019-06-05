@@ -33,8 +33,6 @@ namespace WpfApp1
             return barnSchema;
         }
 
-        //metod som hämtar alla VARDNADSHAVAR från VARDNADSHAVARETABELLEN
-
 
         //metod som hämtar alla VARDNADSHAVARE från VARDNADSHAVARETABELLEN
         public List<Vardnadshavare> GetAllVardnadshavare()
@@ -331,6 +329,26 @@ namespace WpfApp1
                     }
 
                 return barn;
+            }
+        }
+
+        //Metod för att registrera hemgång
+        public void Hemgang(int id, bool b, int barn, int personal)
+        {
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO gatt_hem(gatt_hem_id, gatt_hem, barn_id, personal_id) VALUES (@id, @b, @barn, @personal)";
+                    cmd.Parameters.AddWithValue("gatt_hem_id", id);
+                    cmd.Parameters.AddWithValue("gatt_hem", b );
+                    cmd.Parameters.AddWithValue("barn_id", barn);
+                    cmd.Parameters.AddWithValue("personal_id", personal);
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 

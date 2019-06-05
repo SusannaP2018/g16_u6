@@ -7,19 +7,19 @@
         mc:Ignorable="d"
         Title="schema_personalvy" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
-        <ListView x:Name="lvSchemaPersonalVy" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+        <ListView x:Name="lvSchemaPersonalVy" HorizontalAlignment="Left" Height="180" Margin="10,0,0,0" VerticalAlignment="Top" Width="772">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Narvarande" Width="130" DisplayMemberBinding="{Binding Narvarodag}"/>
                     <GridViewColumn Header="Ledig" Width="130" DisplayMemberBinding="{Binding LedigDag}"/>
-
                     <GridViewColumn Header="Sjuk" Width="130" DisplayMemberBinding="{Binding Sjukdag}"/>
                     <GridViewColumn Header="Frukost" Width="130" DisplayMemberBinding="{Binding Frukost}"/>
                     <GridViewColumn Header="Hämtas av" Width="130" DisplayMemberBinding="{Binding Far_hamta}"/>
-                    <GridViewColumn Header="Barn_id" Width="130" DisplayMemberBinding="{Binding Barn_id}"/>
+                    <GridViewColumn Header="Barn_ID" Width="130" DisplayMemberBinding="{Binding Barn_id}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <CheckBox x:Name="checkBoxHem" Content="Barn har gått hem" HorizontalAlignment="Left" Margin="330,220,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
+        <Button x:Name="btnRegister" Content="Registrera" HorizontalAlignment="Left" Margin="295,320,0,0" VerticalAlignment="Top" Width="195" Height="45"/>
     </Grid>
 </Window>
