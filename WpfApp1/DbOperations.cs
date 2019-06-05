@@ -10,8 +10,6 @@ namespace WpfApp1
 {
     class DbOperations
     {
-       
-
         // Metod som returnerar ett BARN ID
         public int BarnIDForSchema(int id)
         {
@@ -32,7 +30,6 @@ namespace WpfApp1
             }
             return barnSchema;
         }
-
 
         //metod som hämtar alla VARDNADSHAVARE från VARDNADSHAVARETABELLEN
         public List<Vardnadshavare> GetAllVardnadshavare()
