@@ -180,10 +180,27 @@ namespace WpfApp1
 
         //private void btnClickSchedule(object sender, RoutedEventArgs e)
         //{
-            
+
         //    SchemalaggningWindow pw = new SchemalaggningWindow();
         //    pw.Show();
         //    this.Close();
         //}
+
+        //private List<Schema> AndratSchema(List<Schema> S)
+        //{
+        //    DateTime dateTime;
+          
+        //    foreach (var b in S)
+        //    {
+        //        if (b.LedigDag.Value == )
+        //        {
+
+        //        }
+        //    }
+
+        //}
+
+
     }
+    
 }

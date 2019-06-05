@@ -78,9 +78,23 @@ namespace WpfApp1
 
         private void Btn_SchemaWindow(object sender, RoutedEventArgs e)
         {
-            schema_personalvy sp = new schema_personalvy();
-            sp.Show();
-            this.Close();
+            int nr = 0;
+            selectedBarn = (Barn)listViewBarn.SelectedItem;
+
+            if (selectedBarn == null)
+            {
+                MessageBox.Show("Du måste välja ett barn!");
+            }
+            else
+            {
+                nr = db.BarnIDForSchema(selectedBarn.Id);
+
+                schema_personalvy sp = new schema_personalvy();
+                sp.Show();
+                this.Close();
+
+                sp.lvSchemaPersonalVy.ItemsSource = db.GetOneBarnSchema(nr);
+            }
         }
     }
 }
