@@ -32,7 +32,6 @@ namespace WpfApp1
         Personal selectedPersonal;
         Barn selectedBarn;
         Gatthem gh;
-        Schema s;
 
         private void btn_vardWindow(object sender, RoutedEventArgs e)
         {
