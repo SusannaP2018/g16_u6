@@ -12,5 +12,10 @@ namespace WpfApp1
         public bool gattHem { get; set; }
         public int barnID { get; set; }
         public int personalID { get; set; }
+
+        public override string ToString()
+        {
+            return "ID: " + gattHemID + ". Gått hem: " + gattHem + ". Barn: " + barnID + " Personal: " + personalID + ".";
+        }
     }
 }

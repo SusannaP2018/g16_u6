@@ -488,9 +488,10 @@ namespace WpfApp1
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT " +
+                        "g.gatt_hem_id, " +
                         "g.gatt_hem, " +
-                        "b.fornamn, " +
-                        "p.fornamn " +
+                        "b.barn_id, " +
+                        "p.personal_id " +
                         "FROM gatt_hem g " +
                         "JOIN barn b ON b.barn_id = g.barn_id " +
                         "JOIN personal p ON p.personal_id = g.personal_id ";

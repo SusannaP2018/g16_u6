@@ -120,6 +120,8 @@ namespace WpfApp1
             {
                 hemgangna_barn hb = new hemgangna_barn();
                 hb.Show();
+                //hb.listViewGattHem.ItemsSource = db.hemgangnaBarn();
+                hb.listBoxS.ItemsSource = db.hemgangnaBarn();
             }
             catch (PostgresException ex)
             {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="hemgangna_barn" Height="177" Width="314">
+        Title="hemgangna_barn" Height="177" Width="661.1">
     <Grid Margin="0,0,2,-1">
         <ListView x:Name="listViewGattHem" ItemsSource="{Binding gatt_hem}" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="280">
             <ListView.View>
@@ -16,6 +16,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <ListBox x:Name="listBoxS" HorizontalAlignment="Left" Height="105" Margin="328,10,0,0" VerticalAlignment="Top" Width="302"/>
 
     </Grid>
 </Window>
