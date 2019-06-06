@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnVardnadshavare" Content="Visa vardnadshavare" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click"/>
-        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="246" Margin="141,10,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBox1_SelectionChanged"/>
-        <Button x:Name="btnTest" Content="Visa barn" HorizontalAlignment="Left" Margin="373,15,0,0" VerticalAlignment="Top" Width="75" Click="BtnTest_Click"/>
-        <ComboBox x:Name="cmbBoxBarn" HorizontalAlignment="Left" Margin="373,56,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbBoxBarn_SelectionChanged"/>
+        <Button x:Name="btnVardnadshavare" Content="Visa vardnadshavare" HorizontalAlignment="Left" Margin="73,15,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click" Height="40"/>
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="246" Margin="33,70,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBox1_SelectionChanged"/>
+        <Button x:Name="btnTest" Content="Visa barn" HorizontalAlignment="Left" Margin="310,70,0,0" VerticalAlignment="Top" Width="145" Click="BtnTest_Click" Height="40"/>
+        <ComboBox x:Name="cmbBoxBarn" HorizontalAlignment="Left" Margin="325,148,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbBoxBarn_SelectionChanged"/>
         <Button Content="Personal" HorizontalAlignment="Left" Margin="570,345,0,0" VerticalAlignment="Top" Width="190" Click="btn_personalWindow" Height="40"/>
-        <Button x:Name="BtnSchema" Content="Gå till schema" HorizontalAlignment="Left" Margin="373,99,0,0" VerticalAlignment="Top" Width="85" Click="BtnSchema_Click"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="270,345,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <Button x:Name="BtnSchema" Content="Gå till schema" HorizontalAlignment="Left" Margin="310,205,0,0" VerticalAlignment="Top" Width="145" Click="BtnSchema_Click" Height="45"/>
 
-        <Button x:Name="btnAway" Content="Registrera dag" HorizontalAlignment="Left" Margin="539,99,0,0" VerticalAlignment="Top" Width="191" Height="33" Click="BtnAway_Click"/>
-        <TextBox x:Name="textBoxDate" HorizontalAlignment="Left" Height="23" Margin="580,55,0,0" TextWrapping="Wrap" Text="yyyy-mm-dd" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnAway" Content="Registrera dag" HorizontalAlignment="Left" Margin="535,135,0,0" VerticalAlignment="Top" Width="195" Height="45" Click="BtnAway_Click"/>
+        <TextBox x:Name="textBoxDate" HorizontalAlignment="Left" Height="23" Margin="585,70,0,0" TextWrapping="Wrap" Text="yyyy-mm-dd" VerticalAlignment="Top" Width="120"/>
         <CheckBox x:Name="checkBoxLedig" Content="Ledig" HorizontalAlignment="Left" Margin="620,26,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBoxSjuk" Content="Sjuk" HorizontalAlignment="Left" Margin="688,26,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBoxNarvaro" Content="Närvaro" HorizontalAlignment="Left" Margin="539,26,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="505,10,0,0" VerticalAlignment="Top" Width="255"/>
     </Grid>
 </Window>

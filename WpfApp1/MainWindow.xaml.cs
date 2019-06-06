@@ -39,21 +39,10 @@ namespace WpfApp1
         Schema schema = new Schema();
         
         //Klicka här för att visa alla VÅRDNADSHAVARE i listboxen
-        private void Button_Click(object sender, RoutedEventArgs e)        {
-             List<Vardnadshavare> vardnadshavares = db.GetAllVardnadshavare();
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<Vardnadshavare> vardnadshavares = db.GetAllVardnadshavare();
             listBox1.ItemsSource = vardnadshavares;
-            //try
-            //{
-            //    List<Person> persons = db.GetAllPersons();
-            //    listBox1.ItemsSource = persons;
-            //}
-            //catch (PostgresException ex)
-            //{
-
-            //    MessageBox.Show(ex.Message);
-            //}
-            
-
         }
 
         // Markera en VÅRDNADSHAVARE.
@@ -67,14 +56,8 @@ namespace WpfApp1
         {
             selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
 
-
-
             cmbBoxBarn.ItemsSource = null;
             cmbBoxBarn.ItemsSource = db.GetBarnByVh(selectedVardnadshavare.Id); // här
-
-
-
-
         }
 
         private void CmbBoxBarn_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -140,18 +123,6 @@ namespace WpfApp1
             sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
         }
 
-        
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-            List<Schema> schemas = db.GetSchemaBarn();
-            SchemaWin sw = new SchemaWin();
-            sw.Show();
-            this.Close();
-           
-        }
-
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             DateTime? dateTime = null;
@@ -167,9 +138,8 @@ namespace WpfApp1
 
             int vhID = 100;
 
-            string date = textBoxDate.Text;
             DateTime datetime;
-            if (DateTime.TryParse(date, out datetime))
+            if (DateTime.TryParse(textBoxDate.Text, out datetime))
             {
                 if (checkBoxSjuk.IsChecked == true)
                 {
