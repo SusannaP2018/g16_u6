@@ -416,6 +416,44 @@ namespace WpfApp1
             }
         }
 
+        //Metod som lägger till sjukdag
+        public void AddSjukdag(int narvaro_id, int barn_id, int personal_id, DateTime sjukdag)
+        {
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO narvaro(narvaro_id, barn_id, personal_id, sjukdag) VALUES (@narvaro_id, @barn_id, @personal_id, @sjukdag) ";
+                    cmd.Parameters.AddWithValue("narvaro_id", narvaro_id);
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+                    cmd.Parameters.AddWithValue("personal_id", personal_id);
+                    cmd.Parameters.AddWithValue("sjukdag", sjukdag);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        //Metod som lägger till ledigdag
+        public void AddLedigdag(int narvaro_id, int barn_id, int personal_id, DateTime ledigdag)
+        {
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO narvaro(narvaro_id, barn_id, personal_id, ledigdag) VALUES (@narvaro_id, @barn_id, @personal_id, @ledigdag) ";
+                    cmd.Parameters.AddWithValue("narvaro_id", narvaro_id);
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+                    cmd.Parameters.AddWithValue("personal_id", personal_id);
+                    cmd.Parameters.AddWithValue("ledigdag", ledigdag);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
 
         /*
            //metod som hämtar en person baserat på ID
