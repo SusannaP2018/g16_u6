@@ -154,8 +154,7 @@ namespace WpfApp1
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            DateTime? dateTime = null;
-            db.UpdateSchema(dateTime, null, null,  1);
+            db.Updatefrukost(true, 1);
         }
 
         private void BtnAway_Click(object sender, RoutedEventArgs e)

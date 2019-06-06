@@ -11,7 +11,8 @@ namespace WpfApp1
     class DbOperations
     {
         // Metod för att Updatera schemat
-        public void UpdateSchema(DateTime? narvarodag, DateTime? ledigdag, DateTime? sjukdag,int barn_id)
+
+        public void Updatefrukost(bool frukost,int barn_id)
         {
 
             using (var conn = new
@@ -22,11 +23,12 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "update narvaro set (narvarodag,ledigdag,sjukdag)= (@narvarodag,@ledigdag,@sjukdag) where barn_id = @barn_id";
-                    cmd.Parameters.AddWithValue("narvarodag", narvarodag);
-                    cmd.Parameters.AddWithValue("ledigdag", ledigdag);
-                    cmd.Parameters.AddWithValue("sjukdag", sjukdag);
-                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+                    cmd.CommandText = "update dagsschema set (frukost) = (@frukostbool) where barn_id = @hej";
+                    cmd.Parameters.AddWithValue("frukostbool", frukost);
+                    cmd.Parameters.AddWithValue("hej", barn_id);
+
+
+
 
                     cmd.ExecuteNonQuery();
 
@@ -261,6 +263,7 @@ namespace WpfApp1
                 return barn;
             }
         }
+      
 
         //Metod för att registrera hemgång
         public void Hemgang(int gatt_hem_id, bool gatt_hem, int barn_id, int personal_id)
