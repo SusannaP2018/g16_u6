@@ -11,7 +11,7 @@
         <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="246" Margin="33,70,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBox1_SelectionChanged"/>
         <Button x:Name="btnTest" Content="Visa barn" HorizontalAlignment="Left" Margin="310,70,0,0" VerticalAlignment="Top" Width="145" Click="BtnTest_Click" Height="40"/>
         <ComboBox x:Name="cmbBoxBarn" HorizontalAlignment="Left" Margin="325,148,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbBoxBarn_SelectionChanged"/>
-        <Button Content="Personal" HorizontalAlignment="Left" Margin="570,345,0,0" VerticalAlignment="Top" Width="190" Click="btn_personalWindow" Height="40"/>
+        <Button Content="Personal" HorizontalAlignment="Left" Margin="299,353,0,0" VerticalAlignment="Top" Width="190" Click="btn_personalWindow" Height="40"/>
         <Button x:Name="BtnSchema" Content="Gå till schema" HorizontalAlignment="Left" Margin="310,205,0,0" VerticalAlignment="Top" Width="145" Click="BtnSchema_Click" Height="45"/>
 
         <Button x:Name="btnAway" Content="Registrera dag" HorizontalAlignment="Left" Margin="535,135,0,0" VerticalAlignment="Top" Width="195" Height="45" Click="BtnAway_Click"/>
@@ -20,5 +20,9 @@
         <CheckBox x:Name="checkBoxSjuk" Content="Sjuk" HorizontalAlignment="Left" Margin="688,26,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBoxNarvaro" Content="Närvaro" HorizontalAlignment="Left" Margin="539,26,0,0" VerticalAlignment="Top"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="185" Margin="505,10,0,0" VerticalAlignment="Top" Width="255"/>
+        <RadioButton x:Name="rdBtnFrukostJa" Content="Ja" HorizontalAlignment="Left" Margin="597,264,0,0" VerticalAlignment="Top" />
+        <RadioButton x:Name="rdBtnFrukostNej" Content="Nej" HorizontalAlignment="Left" Margin="678,264,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.067,0.894"/>
+        <Button x:Name="btnFrukost" Content="Registrera frukost" HorizontalAlignment="Left" Margin="571,300,0,0" VerticalAlignment="Top" Width="159" Height="44" Click="BtnFrukost_Click"/>
+        <Label x:Name="label" Content="Vill ditt barn äta frukost?" HorizontalAlignment="Left" Margin="586,234,0,0" VerticalAlignment="Top" Width="144"/>
     </Grid>
 </Window>
