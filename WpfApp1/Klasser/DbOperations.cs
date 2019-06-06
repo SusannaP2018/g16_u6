@@ -458,7 +458,7 @@ namespace WpfApp1
                 }
             }
         }
-        // metod som lägger till narvaro
+        // metod som lägger till narvarodag
         public void AddNarvaroDag(int narvaro_id, int barn_id, int personal_id, DateTime narvarodag)
         {
             using (var conn = new

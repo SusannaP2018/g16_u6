@@ -181,9 +181,14 @@ namespace WpfApp1
                     db.AddLedigdag(max, selectedBarn.Id, vhID, datetime);
                     MessageBox.Show("Ledigdag registrerad " + datetime.ToShortDateString() + " för " + selectedBarn.FirstName.ToUpper());
                 }
-                else if (checkBoxLedig.IsChecked == true && checkBoxSjuk.IsChecked == true)
+                else if (checkBoxNarvaro.IsChecked == true)
                 {
-                    MessageBox.Show("Du kan endast välja att antingen registrera en sjukdag eller en ledigdag åt gången!");
+                    db.AddNarvaroDag(max, selectedBarn.Id, vhID, datetime);
+                    MessageBox.Show("Närvarodag registrerad " + datetime.ToShortDateString() + " för " + selectedBarn.FirstName.ToUpper());
+                }
+                else if (checkBoxLedig.IsChecked == true && checkBoxSjuk.IsChecked == true || checkBoxLedig.IsChecked == true && checkBoxNarvaro.IsChecked == true || checkBoxSjuk.IsChecked == true && checkBoxNarvaro.IsChecked == true)
+                {
+                    MessageBox.Show("Du kan endast välja att antingen registrera en närvarodag, sjukdag eller ledigdag åt gången!");
                 }
                 else
                 {

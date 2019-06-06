@@ -15,9 +15,10 @@
         <Button x:Name="BtnSchema" Content="Gå till schema" HorizontalAlignment="Left" Margin="373,99,0,0" VerticalAlignment="Top" Width="85" Click="BtnSchema_Click"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="270,345,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
 
-        <Button x:Name="btnAway" Content="Anmäl frånvaro" HorizontalAlignment="Left" Margin="539,99,0,0" VerticalAlignment="Top" Width="191" Height="33" Click="BtnAway_Click"/>
+        <Button x:Name="btnAway" Content="Registrera dag" HorizontalAlignment="Left" Margin="539,99,0,0" VerticalAlignment="Top" Width="191" Height="33" Click="BtnAway_Click"/>
         <TextBox x:Name="textBoxDate" HorizontalAlignment="Left" Height="23" Margin="580,55,0,0" TextWrapping="Wrap" Text="yyyy-mm-dd" VerticalAlignment="Top" Width="120"/>
-        <CheckBox x:Name="checkBoxLedig" Content="Ledig" HorizontalAlignment="Left" Margin="570,23,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBoxSjuk" Content="Sjuk" HorizontalAlignment="Left" Margin="658,23,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBoxLedig" Content="Ledig" HorizontalAlignment="Left" Margin="620,26,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBoxSjuk" Content="Sjuk" HorizontalAlignment="Left" Margin="688,26,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBoxNarvaro" Content="Närvaro" HorizontalAlignment="Left" Margin="539,26,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
