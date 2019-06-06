@@ -32,8 +32,9 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-            DbOperations db = new DbOperations();
+        DbOperations db = new DbOperations();
         Vardnadshavare selectedVardnadshavare;
+        Barn selectedBarn;
         
         Schema schema = new Schema();
         
@@ -137,7 +138,6 @@ namespace WpfApp1
             SchemaWin sw = new SchemaWin();
             sw.Show();
             sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
-            this.Close();
         }
 
         
@@ -155,6 +155,44 @@ namespace WpfApp1
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             db.UpdateSchema(DateTime.Now, null, null,  1);
+        }
+
+        private void BtnAway_Click(object sender, RoutedEventArgs e)
+        {
+            selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
+
+            int max = db.narvaroMax();
+            max++;
+
+            int vhID = 100;
+
+            string date = textBoxDate.Text;
+            DateTime datetime;
+            if (DateTime.TryParse(date, out datetime))
+            {
+                if (checkBoxSjuk.IsChecked == true)
+                {
+                    db.AddSjukdag(max, selectedBarn.Id, vhID, datetime);
+                    MessageBox.Show("Sjukdag registrerad " + datetime.ToShortDateString() + " för " + selectedBarn.FirstName.ToUpper());
+                }
+                else if (checkBoxLedig.IsChecked == true)
+                {
+                    db.AddLedigdag(max, selectedBarn.Id, vhID, datetime);
+                    MessageBox.Show("Ledigdag registrerad " + datetime.ToShortDateString() + " för " + selectedBarn.FirstName.ToUpper());
+                }
+                else if (checkBoxLedig.IsChecked == true && checkBoxSjuk.IsChecked == true)
+                {
+                    MessageBox.Show("Du kan endast välja att antingen registrera en sjukdag eller en ledigdag åt gången!");
+                }
+                else
+                {
+                    MessageBox.Show("Du måste kryssa för sjukdag eller ledigdag");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Datum måste vara i formatet åååå-mm-dd");
+            }
         }
 
         //private void btnClickSchedule(object sender, RoutedEventArgs e)

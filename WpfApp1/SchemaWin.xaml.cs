@@ -39,11 +39,5 @@ namespace WpfApp1
             lstviewSchema.ItemsSource = db.GetSchemaBarn();
 
         }
-
-
-
-            
-
-        
     }
 }

@@ -32,6 +32,7 @@ namespace WpfApp1
         Personal selectedPersonal;
         Barn selectedBarn;
         Gatthem gh;
+        Schema s;
 
         private void btn_vardWindow(object sender, RoutedEventArgs e)
         {
@@ -105,40 +106,6 @@ namespace WpfApp1
             {
                 MessageBox.Show(ex.Message);
                 throw;
-            }
-        }
-
-        private void BtnAway_Click(object sender, RoutedEventArgs e)
-        {
-            int max = db.narvaroMax();
-            max++;
-
-            string date = textBoxDate.Text;
-            DateTime datetime;
-            if(DateTime.TryParse(date, out datetime))
-            {
-                if (checkBoxSjuk.IsChecked == true)
-                {
-                    db.AddSjukdag(max, selectedBarn.Id, selectedPersonal.id, datetime);
-                    MessageBox.Show("Sjukdag registrerad " + datetime + " för " + selectedBarn.FirstName.ToUpper());
-                }
-                else if (checkBoxLedig.IsChecked == true)
-                {
-                    db.AddLedigdag(max, selectedBarn.Id, selectedPersonal.id, datetime);
-                    MessageBox.Show("Ledigdag registrerad " + datetime + " för " + selectedBarn.FirstName.ToUpper());
-                }
-                else if (checkBoxLedig.IsChecked == true && checkBoxSjuk.IsChecked == true)
-                {
-                    MessageBox.Show("Du kan endast välja att antingen registrera en sjukdag eller en ledigdag åt gången!");
-                }
-                else
-                {
-                    MessageBox.Show("Du måste kryssa för sjukdag eller ledigdag");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Datum måste vara i formatet åååå-mm-dd");
             }
         }
     }

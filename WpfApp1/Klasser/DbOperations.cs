@@ -324,6 +324,7 @@ namespace WpfApp1
             }
         }
 
+        //Metod för att hämta barn baserat på VH
         public List<Barn> GetBarnByVh(int vh_id)
         {
             Barn b;
@@ -364,27 +365,6 @@ namespace WpfApp1
                         }
                 }
                 return bs;
-            }
-        }
-
-        //metod för att ändra tabellen
-        public void UpdateNarvaroJa(int n_id, int barn_id, int personal_id, DateTime narvarodag)
-        {
-            using (var conn = new
-            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
-            {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
-                {
-                    cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO narvaro (narvaro_id, barn_id, personal_id, narvarodag)" +
-                        "VALUES (@narvaro_id, @barn_id, @personal_id, @narvarodag)";
-                    cmd.Parameters.AddWithValue("narvaro_id", n_id);
-                    cmd.Parameters.AddWithValue("barn_id", barn_id);
-                    cmd.Parameters.AddWithValue("personal_id", personal_id);
-                    cmd.Parameters.AddWithValue("narvarodag", narvarodag);
-                    cmd.ExecuteNonQuery();
-                }
             }
         }
 
