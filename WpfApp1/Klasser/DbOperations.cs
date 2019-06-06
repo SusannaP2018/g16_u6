@@ -144,7 +144,6 @@ namespace WpfApp1
                     {
                         while (reader.Read())
                         {
-                            
                                 s = new Schema();
                                 if (!reader.IsDBNull(0))
                                 {
@@ -174,15 +173,11 @@ namespace WpfApp1
                                     s.Sjukdag = null;
 
                             }
-
                                     s.Frukost = reader.GetBoolean(3);
                                     s.Far_hamta = reader.GetString(4);
                                     s.Barn_id = reader.GetInt32(5);
-                            scheman.Add(s);
-                           
-                            }
-
-                            
+                            scheman.Add(s); 
+                            }    
                         }
                         return scheman;
                     }
