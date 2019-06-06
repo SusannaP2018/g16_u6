@@ -150,7 +150,7 @@ namespace WpfApp1
                                 }
                                 else
                                 {
-                                    s.Narvarodag = s.Narvarodag.GetValueOrDefault();
+                                    s.Narvarodag = null;
                                 }
                             if (!reader.IsDBNull(1))
                             {
@@ -159,7 +159,7 @@ namespace WpfApp1
                             }
                             else
                             {
-                                    s.LedigDag = s.LedigDag.GetValueOrDefault();
+                                    s.LedigDag = null;
 
                             }
                             if (!reader.IsDBNull(2))
@@ -169,7 +169,7 @@ namespace WpfApp1
                             }
                             else
                             {
-                                    s.Sjukdag = s.LedigDag.GetValueOrDefault();
+                                    s.Sjukdag = null;
 
                             }
 
