@@ -195,7 +195,7 @@ namespace WpfApp1
             Personal p;
             List<Personal> personal = new List<Personal>();
 
-            string stmt = "SELECT * FROM personal";
+            string stmt = "SELECT * FROM personal WHERE NOT personal_id = 100";
 
             using (var conn = new
                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
