@@ -22,7 +22,7 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "update narvaro set (narvarodag?,ledigdag?,sjukdag?)= (@narvarodag,@ledigdag,@sjukdag) where barn_id = @barn_id";
+                    cmd.CommandText = "update narvaro set (narvarodag,ledigdag,sjukdag)= (@narvarodag,@ledigdag,@sjukdag) where barn_id = @barn_id";
                     cmd.Parameters.AddWithValue("narvarodag", narvarodag);
                     cmd.Parameters.AddWithValue("ledigdag", ledigdag);
                     cmd.Parameters.AddWithValue("sjukdag", sjukdag);
@@ -474,6 +474,25 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("barn_id", barn_id);
                     cmd.Parameters.AddWithValue("personal_id", personal_id);
                     cmd.Parameters.AddWithValue("ledigdag", ledigdag);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        // metod som lägger till narvaro
+        public void AddNarvaroDag(int narvaro_id, int barn_id, int personal_id, DateTime narvarodag)
+        {
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO narvaro(narvaro_id, barn_id, personal_id, narvarodag) VALUES (@narvaro_id, @barn_id, @personal_id, @narvarodag) ";
+                    cmd.Parameters.AddWithValue("narvaro_id", narvaro_id);
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+                    cmd.Parameters.AddWithValue("personal_id", personal_id);
+                    cmd.Parameters.AddWithValue("narvarodag", narvarodag);
                     cmd.ExecuteNonQuery();
                 }
             }

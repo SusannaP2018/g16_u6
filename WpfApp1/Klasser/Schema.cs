@@ -8,7 +8,7 @@ namespace WpfApp1
 {
     class Schema
     {
-        public DateTime?  Narvarodag { get; set; } 
+        public DateTime? Narvarodag { get; set; } 
         public DateTime? LedigDag { get; set; }
         public DateTime? Sjukdag { get; set; }
         public bool Frukost { get; set; }
