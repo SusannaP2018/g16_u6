@@ -34,20 +34,14 @@ namespace WpfApp1
         Schema schema = new Schema();
 
         //Klicka här för att visa alla VÅRDNADSHAVARE i listboxen
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnVardnadshavare_Click(object sender, RoutedEventArgs e)
         {
             List<Vardnadshavare> vardnadshavares = db.GetAllVardnadshavare();
             listBox1.ItemsSource = vardnadshavares;
         }
 
-        // Markera en VÅRDNADSHAVARE.
-        private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
-        }
-
         // visa Vilket BARN som hör till vilken VÅRDNADSHAVARE
-        private void BtnTest_Click(object sender, RoutedEventArgs e)
+        private void BtnBarn_Click(object sender, RoutedEventArgs e)
         {
             selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
 
@@ -58,43 +52,6 @@ namespace WpfApp1
         private void CmbBoxBarn_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-        }
-
-        //  DbOperations db = new DbOperations();
-
-        // // int id = Convert.ToInt32(idTextBox.Text);
-
-        //  try
-        //  {
-        ////      Person p = db.GetPersonById(id);
-        //      MessageBox.Show(p.ToString());
-        //  }
-        //  catch (PostgresException ex)
-        //  {
-
-        //      MessageBox.Show(ex.Message);
-
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            //DbOperations db = new DbOperations();
-
-            //int id = Convert.ToInt32(personidTextBox.Text);
-            //string fname = fnameTextBox.Text;
-            //string lname = lnameTextBox.Text;
-
-            //db.AddNewPerson(id, fname, lname);
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            //    DbOperations db = new DbOperations();
-
-            //    int id = Convert.ToInt32(personidTextBox.Text);
-            //    string fname = fnameTextBox.Text;
-            //    string lname = lnameTextBox.Text;
-
-            //    db.UpdatePerson(id, fname, lname);
         }
 
         private void btn_personalWindow(object sender, RoutedEventArgs e)
@@ -165,16 +122,9 @@ namespace WpfApp1
             }
         }
 
-        //private void btnClickSchedule(object sender, RoutedEventArgs e)
-        //{
+        private void BtnFrukost_Click(object sender, RoutedEventArgs e)
+        {
 
-        //    SchemalaggningWindow pw = new SchemalaggningWindow();
-        //    pw.Show();
-        //    this.Close();
-        //}
-
-
-
-
+        }
     }
 }
