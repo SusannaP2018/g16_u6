@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnVardnadshavare" Content="Visa vardnadshavare" HorizontalAlignment="Left" Margin="73,15,0,0" VerticalAlignment="Top" Width="145" Click="BtnVardnadshavare_Click" Height="40"/>
+        <Button x:Name="btnVardnadshavare" Content="Visa Vårdnadshavare" HorizontalAlignment="Left" Margin="73,15,0,0" VerticalAlignment="Top" Width="145" Click="BtnVardnadshavare_Click" Height="40"/>
         <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="246" Margin="33,70,0,0" VerticalAlignment="Top" Width="227" />
         <Button x:Name="btnBarn" Content="Visa barn" HorizontalAlignment="Left" Margin="310,70,0,0" VerticalAlignment="Top" Width="145" Click="BtnBarn_Click" Height="40"/>
         <ComboBox x:Name="cmbBoxBarn" HorizontalAlignment="Left" Margin="325,148,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbBoxBarn_SelectionChanged"/>

@@ -23,12 +23,5 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
-        DbOperations db = new DbOperations();
-        
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            personalWindow pw = new personalWindow();
-            pw.Show();
-        }
     }
 }

@@ -64,7 +64,7 @@ namespace WpfApp1
             Vardnadshavare v;
             List<Vardnadshavare> vardnadshavares = new List<Vardnadshavare>();
 
-            string stmt = "SELECT * FROM vardnadshavare";
+            string stmt = "SELECT v.vh_id, v.fornamn, v.efternamn FROM vardnadshavare v";
 
             using (var conn = new
                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
@@ -81,9 +81,7 @@ namespace WpfApp1
                         {
                             Id = reader.GetInt32(0),
                             FirstName = reader.GetString(1),
-                            LastName = reader.GetString(2),
-                            Telephone = reader.GetString(3)
-
+                            LastName = reader.GetString(2),    
                         };
                         vardnadshavares.Add(v);
                     }
