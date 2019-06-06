@@ -17,11 +17,6 @@ using Npgsql;
 namespace WpfApp1
 
 {
-    //Charlies kommentar
-    // Håkans komentar 2 
-    // Susannas kommentar
-    //
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -35,9 +30,9 @@ namespace WpfApp1
         DbOperations db = new DbOperations();
         Vardnadshavare selectedVardnadshavare;
         Barn selectedBarn;
-        
+
         Schema schema = new Schema();
-        
+
         //Klicka här för att visa alla VÅRDNADSHAVARE i listboxen
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -65,19 +60,19 @@ namespace WpfApp1
 
         }
 
-          //  DbOperations db = new DbOperations();
+        //  DbOperations db = new DbOperations();
 
-          // // int id = Convert.ToInt32(idTextBox.Text);
+        // // int id = Convert.ToInt32(idTextBox.Text);
 
-          //  try
-          //  {
-          ////      Person p = db.GetPersonById(id);
-          //      MessageBox.Show(p.ToString());
-          //  }
-          //  catch (PostgresException ex)
-          //  {
+        //  try
+        //  {
+        ////      Person p = db.GetPersonById(id);
+        //      MessageBox.Show(p.ToString());
+        //  }
+        //  catch (PostgresException ex)
+        //  {
 
-          //      MessageBox.Show(ex.Message);
+        //      MessageBox.Show(ex.Message);
 
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -93,23 +88,23 @@ namespace WpfApp1
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-        //    DbOperations db = new DbOperations();
+            //    DbOperations db = new DbOperations();
 
-        //    int id = Convert.ToInt32(personidTextBox.Text);
-        //    string fname = fnameTextBox.Text;
-        //    string lname = lnameTextBox.Text;
+            //    int id = Convert.ToInt32(personidTextBox.Text);
+            //    string fname = fnameTextBox.Text;
+            //    string lname = lnameTextBox.Text;
 
-        //    db.UpdatePerson(id, fname, lname);
-       }
+            //    db.UpdatePerson(id, fname, lname);
+        }
 
         private void btn_personalWindow(object sender, RoutedEventArgs e)
         {
             personalWindow pw = new personalWindow();
             pw.Show();
             this.Close();
-            
+
         }
-        
+
         private void BtnSchema_Click(object sender, RoutedEventArgs e)
         {
             int nr = 0;
@@ -170,30 +165,6 @@ namespace WpfApp1
             }
         }
 
-        private void BtnFrukost_Click(object sender, RoutedEventArgs e)
-        {
-
-            selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
-
-            int nr = selectedVardnadshavare.Id;
-            bool ja, nej;
-            if (rdBtnFrukostJa.IsChecked == true)
-            {
-                ja = true;
-                db.Updatefrukost(ja, nr);
-            }
-            if (rdBtnFrukostNej.IsChecked == true)
-            {
-                nej = false;
-                db.Updatefrukost(nej, nr);
-
-            }
-
-            //db.Updatefrukost()
-        }
-
-
-
         //private void btnClickSchedule(object sender, RoutedEventArgs e)
         //{
 
@@ -206,5 +177,4 @@ namespace WpfApp1
 
 
     }
-    
 }
