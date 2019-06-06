@@ -10,6 +10,30 @@ namespace WpfApp1
 {
     class DbOperations
     {
+        // Metod för att Updatera schemat
+        public void UpdateSchema(DateTime? narvarodag, DateTime? ledigdag, DateTime? sjukdag,int barn_id)
+        {
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "update narvaro set (narvarodag?,ledigdag?,sjukdag?)= (@narvarodag,@ledigdag,@sjukdag) where barn_id = @barn_id";
+                    cmd.Parameters.AddWithValue("narvarodag", narvarodag);
+                    cmd.Parameters.AddWithValue("ledigdag", ledigdag);
+                    cmd.Parameters.AddWithValue("sjukdag", sjukdag);
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+
+        }
         // Metod som returnerar ett BARN ID
         public int BarnIDForSchema(int id)
         {
