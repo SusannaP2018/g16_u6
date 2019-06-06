@@ -152,6 +152,11 @@ namespace WpfApp1
            
         }
 
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            db.UpdateSchema(DateTime.Now, null, null,  1);
+        }
+
         //private void btnClickSchedule(object sender, RoutedEventArgs e)
         //{
 
@@ -160,7 +165,7 @@ namespace WpfApp1
         //    this.Close();
         //}
 
-        
+
 
 
     }
