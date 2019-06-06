@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="hemgangna barn.xaml.cs">
+      <DependentUpon>hemgangna barn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Klasser\Barn.cs" />
     <Compile Include="Klasser\Gatthem.cs" />
     <Compile Include="personalWindow.xaml.cs">
@@ -91,6 +94,10 @@
       <DependentUpon>schema_personalvy.xaml</DependentUpon>
     </Compile>
     <Compile Include="Klasser\Vardnadshavare.cs" />
+    <Page Include="hemgangna barn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

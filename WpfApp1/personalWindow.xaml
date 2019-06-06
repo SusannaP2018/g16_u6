@@ -39,5 +39,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btnHome" Content="Hemgångna barn" HorizontalAlignment="Left" Margin="479,249,0,0" VerticalAlignment="Top" Width="191" Height="33" Click="BtnHome_Click"/>
     </Grid>
 </Window>

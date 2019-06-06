@@ -104,8 +104,22 @@ namespace WpfApp1
                 }
                 else
                 {
-                    MessageBox.Show("Bocka i checkrutan om du vill registrera hemgång för barn");
+                    MessageBox.Show("Bocka i checkboxen om du vill registrera hemgång för ett barn");
                 }
+            }
+            catch (PostgresException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                hemgangna_barn hb = new hemgangna_barn();
+                hb.Show();
             }
             catch (PostgresException ex)
             {

@@ -474,6 +474,45 @@ namespace WpfApp1
             }
         }
 
+        //Metod som skriver ut hemgångna barn
+        public List<Gatthem> hemgangnaBarn()
+        {
+            Gatthem gh;
+            List<Gatthem> gattHem = new List<Gatthem>();
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT " +
+                        "g.gatt_hem, " +
+                        "b.fornamn, " +
+                        "p.fornamn " +
+                        "FROM gatt_hem g " +
+                        "JOIN barn b ON b.barn_id = g.barn_id " +
+                        "JOIN personal p ON p.personal_id = g.personal_id ";
+
+                    using (var reader = cmd.ExecuteReader())
+
+                        while (reader.Read())
+                        {
+                            gh = new Gatthem()
+                            {
+                                gattHemID = reader.GetInt32(0),
+                                gattHem = reader.GetBoolean(1),
+                                barnID = reader.GetInt32(2),
+                                personalID = reader.GetInt32(3)
+                            };
+                            gattHem.Add(gh);
+                        }
+                }
+                return gattHem;
+            }
+        }
+
         /*
            //metod som hämtar en person baserat på ID
             public Person GetPersonById(int id)

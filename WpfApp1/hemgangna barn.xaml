@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp1.hemgangna_barn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="hemgangna_barn" Height="177" Width="314">
+    <Grid Margin="0,0,2,-1">
+        <ListView x:Name="listViewGattHem" ItemsSource="{Binding gatt_hem}" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="280">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Gått hem" Width="91" DisplayMemberBinding="{Binding gatt_hem}"/>
+                    <GridViewColumn Header="Barn" Width="91" DisplayMemberBinding="{Binding barn.FirstName}"/>
+                    <GridViewColumn Header="Personal" Width="91" DisplayMemberBinding="{Binding personal.FirstName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
