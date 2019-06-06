@@ -116,18 +116,10 @@ namespace WpfApp1
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                hemgangna_barn hb = new hemgangna_barn();
-                hb.Show();
-                //hb.listViewGattHem.ItemsSource = db.hemgangnaBarn();
-                hb.listBoxS.ItemsSource = db.hemgangnaBarn();
-            }
-            catch (PostgresException ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
+            hemgangna_barn hb = new hemgangna_barn();
+            hb.Show();
+
+            hb.listBoxHemgang.ItemsSource = db.hemgangnaBarn();
         }
     }
 }

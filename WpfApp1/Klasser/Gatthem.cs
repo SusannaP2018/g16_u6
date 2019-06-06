@@ -15,7 +15,7 @@ namespace WpfApp1
 
         public override string ToString()
         {
-            return "ID: " + gattHemID + ". Gått hem: " + gattHem + ". Barn: " + barnID + " Personal: " + personalID + ".";
+            return "BarnID: " + barnID;
         }
     }
 }

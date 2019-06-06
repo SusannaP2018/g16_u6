@@ -5,18 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="hemgangna_barn" Height="177" Width="661.1">
-    <Grid Margin="0,0,2,-1">
-        <ListView x:Name="listViewGattHem" ItemsSource="{Binding gatt_hem}" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="280">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Gått hem" Width="91" DisplayMemberBinding="{Binding gatt_hem}"/>
-                    <GridViewColumn Header="Barn" Width="91" DisplayMemberBinding="{Binding barn.FirstName}"/>
-                    <GridViewColumn Header="Personal" Width="91" DisplayMemberBinding="{Binding personal.FirstName}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListBox x:Name="listBoxS" HorizontalAlignment="Left" Height="105" Margin="328,10,0,0" VerticalAlignment="Top" Width="302"/>
-
+        Title="hemgangna_barn" Height="200" Width="479">
+    <Grid Margin="0,-25,-8,-6" Height="200" VerticalAlignment="Bottom">
+        <ListBox x:Name="listBoxHemgang" HorizontalAlignment="Left" Height="100" Margin="160,60,0,0" VerticalAlignment="Top" Width="145"/>
     </Grid>
 </Window>

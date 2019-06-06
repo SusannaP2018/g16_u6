@@ -22,7 +22,6 @@ namespace WpfApp1
         public hemgangna_barn()
         {
             InitializeComponent();
-            listViewGattHem.ItemsSource = db.hemgangnaBarn();
         }
         DbOperations db = new DbOperations();
     }

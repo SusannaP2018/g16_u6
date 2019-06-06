@@ -513,38 +513,37 @@ namespace WpfApp1
                 return gattHem;
             }
         }
-
-        /*
-           //metod som hämtar en person baserat på ID
-            public Person GetPersonById(int id)
+        
+           //metod som hämtar ett barn baserat på ID
+            public Barn GetBarnByID(int id)
             {
-                Person p = new Person();
+                Barn b = new Barn();
                 using (var conn = new
-                    NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
+                    NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
                 {
                     conn.Open();
                     using (var cmd = new NpgsqlCommand())
                     {
                         cmd.Connection = conn;
-                        cmd.CommandText = "SELECT * FROM person WHERE person_id = @person_id";
+                        cmd.CommandText = "SELECT b.fornamn, b.efternamn FROM barn b WHERE barn_id = @barn_id";
 
-                        cmd.Parameters.AddWithValue("person_id", id);
+                        cmd.Parameters.AddWithValue("barn_id", id);
 
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                p.id = reader.GetInt32(0);
-                                p.firstname = reader.GetString(1);
-                                p.lastname = reader.GetString(2);
+                                b.Id = reader.GetInt32(0);
+                                b.FirstName = reader.GetString(1);
+                                b.LastName = reader.GetString(2);
                             }
                         }
                     }
-                    return p;
+                    return b;
                 }
             }
 
-            //metod för att lägga till personer i tabellen
+           /* //metod för att lägga till personer i tabellen
             public void AddNewPerson(int person_id, string firstname, string lastname)
             {
                 using (var conn = new
