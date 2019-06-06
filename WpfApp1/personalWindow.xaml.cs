@@ -45,27 +45,8 @@ namespace WpfApp1
             selectedPersonal = (Personal)listBoxPersonal.SelectedItem;
             lblAvdelning.Content = selectedPersonal.avdelning;
 
-            if(selectedPersonal.avdelning == 1)
-            {
-                listViewBarn.ItemsSource = null;
-                listViewBarn.ItemsSource = db.GetBarnAvdelning1();
-            }
-            else if(selectedPersonal.avdelning == 2)
-            {
-                listViewBarn.ItemsSource = null;
-                listViewBarn.ItemsSource = db.GetBarnAvdelning2();
-            }
-            else if(selectedPersonal.avdelning == 3)
-            {
-                listViewBarn.ItemsSource = null;
-                listViewBarn.ItemsSource = db.GetBarnAvdelning3();
-            }
-            else
-            {
-                listViewBarn.ItemsSource = null;
-                listViewBarn.ItemsSource = db.GetBarnAvdelning4();
-            }
-            
+            listViewBarn.ItemsSource = null;
+            listViewBarn.ItemsSource = db.GetBarnByAvdelning(selectedPersonal.avdelning);            
         }
 
         private void ListViewBarn_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

@@ -78,19 +78,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Barn.cs" />
-    <Compile Include="Gatthem.cs" />
+    <Compile Include="Klasser\Barn.cs" />
+    <Compile Include="Klasser\Gatthem.cs" />
     <Compile Include="personalWindow.xaml.cs">
       <DependentUpon>personalWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Schema.cs" />
+    <Compile Include="Klasser\Schema.cs" />
     <Compile Include="SchemaWin.xaml.cs">
       <DependentUpon>SchemaWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="schema_personalvy.xaml.cs">
       <DependentUpon>schema_personalvy.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vardnadshavare.cs" />
+    <Compile Include="Klasser\Vardnadshavare.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,7 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DbOperations.cs" />
+    <Compile Include="Klasser\DbOperations.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -118,7 +118,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Personal.cs" />
+    <Compile Include="Klasser\Personal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

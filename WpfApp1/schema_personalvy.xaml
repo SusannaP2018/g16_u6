@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="schema_personalvy" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
-        <ListView x:Name="lvSchemaPersonalVy" HorizontalAlignment="Left" Height="409" Margin="10,0,0,0" VerticalAlignment="Top" Width="772">
+        <ListView x:Name="lvSchemaPersonalVy" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Narvarande" Width="130" DisplayMemberBinding="{Binding Narvarodag}"/>
