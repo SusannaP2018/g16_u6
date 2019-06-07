@@ -150,6 +150,7 @@ namespace WpfApp1
             string farhamta = txtFarHamta.Text;
            
             db.UpdateFarHamta(farhamta, selectedBarn.Id);
+            MessageBox.Show("Din kommentar är registrerad!");
         
            
             
