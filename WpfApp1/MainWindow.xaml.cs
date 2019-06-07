@@ -124,22 +124,7 @@ namespace WpfApp1
 
         private void BtnFrukost_Click(object sender, RoutedEventArgs e)
         {
-            {
-                selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
 
-                int nr = selectedBarn.Id;
-                bool ja, nej;
-                if (rdBtnFrukostJa.IsChecked == true)
-                {
-                    ja = true;
-                    db.Updatefrukost(ja, nr);
-                }
-                if (rdBtnFrukostNej.IsChecked == true)
-                {
-                    nej = false;
-                    db.Updatefrukost(nej, nr);
-                }
-            }
         }
     }
 }
