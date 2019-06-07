@@ -124,38 +124,22 @@ namespace WpfApp1
 
         private void BtnFrukost_Click(object sender, RoutedEventArgs e)
         {
-            selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
-            int nr = 0;
-
-           
-
-            bool ja, nej;
-            if (rdBtnFrukostJa.IsChecked == true)
             {
-                ja = true;
-                db.Updatefrukost(ja, nr);
-                MessageBox.Show("Ditt barn kommer att serveras frukost");
+                selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
+
+                int nr = selectedBarn.Id;
+                bool ja, nej;
+                if (rdBtnFrukostJa.IsChecked == true)
+                {
+                    ja = true;
+                    db.Updatefrukost(ja, nr);
+                }
+                if (rdBtnFrukostNej.IsChecked == true)
+                {
+                    nej = false;
+                    db.Updatefrukost(nej, nr);
+                }
             }
-            if (rdBtnFrukostNej.IsChecked == true)
-            {
-                nej = false;
-                db.Updatefrukost(nej, nr);
-                MessageBox.Show("Ditt barn kommer inte att serveras frukost");
-
-
-            }
-
-
-            if (!(nr == 0))
-            {
-                nr = selectedVardnadshavare.Id;
-
-            }
-               
-            
-           
-
- 
         }
     }
 }

@@ -12,10 +12,13 @@ namespace WpfApp1
         public bool gattHem { get; set; }
         public int barnID { get; set; }
         public int personalID { get; set; }
+        public string barnFornamn { get; set; }
+        public string barnEfternamn { get; set; }
+        public string persFornamn { get; set; }
 
         public override string ToString()
         {
-            return "BarnID: " + barnID;
+            return "Barn: " + barnFornamn + " " + barnEfternamn + "Registrerande personal: " + persFornamn + ".";
         }
     }
 }

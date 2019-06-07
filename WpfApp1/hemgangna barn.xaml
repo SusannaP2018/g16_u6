@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="hemgangna_barn" Height="200" Width="479">
     <Grid Margin="0,-25,-8,-6" Height="200" VerticalAlignment="Bottom">
-        <ListBox x:Name="listBoxHemgang" HorizontalAlignment="Left" Height="100" Margin="160,60,0,0" VerticalAlignment="Top" Width="145"/>
+        <ListBox x:Name="listBoxHemgang" HorizontalAlignment="Left" Height="100" Margin="28,60,0,0" VerticalAlignment="Top" Width="409"/>
     </Grid>
 </Window>
