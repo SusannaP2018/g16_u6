@@ -124,7 +124,22 @@ namespace WpfApp1
 
         private void BtnFrukost_Click(object sender, RoutedEventArgs e)
         {
+            {
+                selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
 
+                int nr = selectedVardnadshavare.Id;
+                bool ja, nej;
+                if (rdBtnFrukostJa.IsChecked == true)
+                {
+                    ja = true;
+                    db.Updatefrukost(ja, nr);
+                }
+                if (rdBtnFrukostNej.IsChecked == true)
+                {
+                    nej = false;
+                    db.Updatefrukost(nej, nr);
+                }
+            }
         }
     }
 }
