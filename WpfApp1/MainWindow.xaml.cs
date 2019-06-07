@@ -132,11 +132,14 @@ namespace WpfApp1
             {
                 ja = true;
                 db.Updatefrukost(ja, nr);
+                MessageBox.Show("Ditt barn kommer att serveras frukost");
             }
             if (rdBtnFrukostNej.IsChecked == true)
             {
                 nej = false;
                 db.Updatefrukost(nej, nr);
+                MessageBox.Show("Ditt barn kommer inte att serveras frukost");
+
 
             }
         }
