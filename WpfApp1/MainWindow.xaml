@@ -24,5 +24,16 @@
         <RadioButton x:Name="rdBtnFrukostNej" Content="Nej" HorizontalAlignment="Left" Margin="653,252,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnFrukost" Content="Registrera frukost" HorizontalAlignment="Left" Margin="556,289,0,0" VerticalAlignment="Top" Width="159" Height="44" Click="BtnFrukost_Click"/>
         <Label x:Name="label" Content="Vill ditt barn äta frukost?" HorizontalAlignment="Left" Margin="571,214,0,0" VerticalAlignment="Top" Width="144"/>
+        <Button x:Name="btnFarHamta" Content="registrera kommentar" HorizontalAlignment="Left" Margin="565,348,0,0" VerticalAlignment="Top" Width="188" Height="26" RenderTransformOrigin="0.5,0.5" Click="BtnFarHamta_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.007"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBox x:Name="txtFarHamta" HorizontalAlignment="Left" Height="34" Margin="516,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268"/>
     </Grid>
 </Window>

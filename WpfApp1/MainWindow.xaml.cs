@@ -143,5 +143,17 @@ namespace WpfApp1
 
             }
         }
+
+        private void BtnFarHamta_Click(object sender, RoutedEventArgs e)
+        {
+            selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
+            string farhamta = txtFarHamta.Text;
+           
+            db.UpdateFarHamta(farhamta, selectedBarn.Id);
+        
+           
+            
+            
+        }
     }
 }

@@ -10,6 +10,34 @@ namespace WpfApp1
 {
     class DbOperations
     {
+        // metod för att updatera far_hamta
+        public void UpdateFarHamta(string far_hamta, int barn_id)
+        {
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = " update dagsschema set (far_hamta)=(@hamtastring) where barn_id=@hej";
+                    cmd.Parameters.AddWithValue("hamtastring",far_hamta);
+                    cmd.Parameters.AddWithValue("hej", barn_id);
+
+
+
+
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+
+        }
+
+
+
         // Metod för att Updatera schemat
 
         public void Updatefrukost(bool frukost,int barn_id)
