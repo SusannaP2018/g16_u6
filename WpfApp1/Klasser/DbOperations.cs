@@ -491,7 +491,10 @@ namespace WpfApp1
                         "g.gatt_hem_id, " +
                         "g.gatt_hem, " +
                         "b.barn_id, " +
-                        "p.personal_id " +
+                        "p.personal_id, " +
+                        "b.fornamn, " +
+                        "b.efternamn, " +
+                        "p.fornamn " +
                         "FROM gatt_hem g " +
                         "JOIN barn b ON b.barn_id = g.barn_id " +
                         "JOIN personal p ON p.personal_id = g.personal_id ";
@@ -505,7 +508,10 @@ namespace WpfApp1
                                 gattHemID = reader.GetInt32(0),
                                 gattHem = reader.GetBoolean(1),
                                 barnID = reader.GetInt32(2),
-                                personalID = reader.GetInt32(3)
+                                personalID = reader.GetInt32(3),
+                                barnFornamn = reader.GetString(4),
+                                barnEfternamn = reader.GetString(5),
+                                persFornamn = reader.GetString(6)
                             };
                             gattHem.Add(gh);
                         }
