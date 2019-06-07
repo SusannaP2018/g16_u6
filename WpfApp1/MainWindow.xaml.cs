@@ -125,9 +125,9 @@ namespace WpfApp1
         private void BtnFrukost_Click(object sender, RoutedEventArgs e)
         {
             {
-                selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
+                selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
 
-                int nr = selectedVardnadshavare.Id;
+                int nr = selectedBarn.Id;
                 bool ja, nej;
                 if (rdBtnFrukostJa.IsChecked == true)
                 {
