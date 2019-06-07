@@ -122,7 +122,7 @@ namespace WpfApp1
             }
         }
 
-        private void BtnFrukost_Click(object sender, RoutedEventArgs e)
+        private void BtnFrukost_Click(object sender, RoutedEventArgs e) // registrerar frukost
         {
             selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
 
