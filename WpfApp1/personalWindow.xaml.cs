@@ -52,9 +52,16 @@ namespace WpfApp1
         private void ListViewBarn_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             selectedBarn = (Barn)listViewBarn.SelectedItem;
-
-            listBoxVard.ItemsSource = null;
-            listBoxVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id); // här
+            if (selectedBarn != null)
+            {
+                lblBarnNamn.Content = selectedBarn.FirstName.ToUpper();
+                listViewVard.ItemsSource = null;
+                listViewVard.ItemsSource = db.GetVhByBarn(selectedBarn.Id);
+            }
+            else
+            {
+                listViewVard.ItemsSource = null;
+            }
         }
 
         private void Btn_SchemaWindow(object sender, RoutedEventArgs e)
@@ -72,7 +79,6 @@ namespace WpfApp1
 
                 schema_personalvy sp = new schema_personalvy();
                 sp.Show();
-                this.Close();
 
                 sp.lvSchemaPersonalVy.ItemsSource = db.GetOneBarnSchema(nr);
             }
@@ -98,7 +104,7 @@ namespace WpfApp1
                 }
                 else
                 {
-                    MessageBox.Show("Bocka i checkrutan om du vill registrera hemgång för barn");
+                    MessageBox.Show("Bocka i checkboxen om du vill registrera hemgång för ett barn");
                 }
             }
             catch (PostgresException ex)
@@ -106,6 +112,14 @@ namespace WpfApp1
                 MessageBox.Show(ex.Message);
                 throw;
             }
+        }
+
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            hemgangna_barn hb = new hemgangna_barn();
+            hb.Show();
+
+            hb.listBoxHemgang.ItemsSource = db.hemgangnaBarn();
         }
     }
 }

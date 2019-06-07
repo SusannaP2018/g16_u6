@@ -15,7 +15,7 @@ namespace WpfApp1
 
         public override string ToString()
         {
-            return FirstName.ToUpper() + " " + LastName.ToUpper() + " Telefonnr: " + Telephone;
+            return FirstName.ToUpper() + " " + LastName.ToUpper() + " " + Telephone;
         }
     }
 }

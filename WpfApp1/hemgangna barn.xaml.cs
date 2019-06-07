@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for schema_personalvy.xaml
+    /// Interaction logic for hemgangna_barn.xaml
     /// </summary>
-    public partial class schema_personalvy : Window
+    public partial class hemgangna_barn : Window
     {
-        public schema_personalvy()
+        public hemgangna_barn()
         {
             InitializeComponent();
         }
+        DbOperations db = new DbOperations();
     }
 }

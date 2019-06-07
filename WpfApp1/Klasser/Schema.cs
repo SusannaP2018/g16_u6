@@ -15,15 +15,11 @@ namespace WpfApp1
         public string Far_hamta { get; set; }
         public int Barn_id { get; set; }
 
-        
-        
+
+
         public override string ToString()
         {
             return Narvarodag + " " + LedigDag + " " + Sjukdag + " " + Frukost + " " + Far_hamta + " " + Barn_id;
         }
-        
-
-
-
     }
 }

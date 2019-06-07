@@ -64,7 +64,7 @@ namespace WpfApp1
             Vardnadshavare v;
             List<Vardnadshavare> vardnadshavares = new List<Vardnadshavare>();
 
-            string stmt = "SELECT * FROM vardnadshavare";
+            string stmt = "SELECT v.vh_id, v.fornamn, v.efternamn FROM vardnadshavare v";
 
             using (var conn = new
                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
@@ -81,9 +81,7 @@ namespace WpfApp1
                         {
                             Id = reader.GetInt32(0),
                             FirstName = reader.GetString(1),
-                            LastName = reader.GetString(2),
-                            Telephone = reader.GetString(3)
-
+                            LastName = reader.GetString(2),    
                         };
                         vardnadshavares.Add(v);
                     }
@@ -144,7 +142,6 @@ namespace WpfApp1
                     {
                         while (reader.Read())
                         {
-                            
                                 s = new Schema();
                                 if (!reader.IsDBNull(0))
                                 {
@@ -174,15 +171,11 @@ namespace WpfApp1
                                     s.Sjukdag = null;
 
                             }
-
                                     s.Frukost = reader.GetBoolean(3);
                                     s.Far_hamta = reader.GetString(4);
                                     s.Barn_id = reader.GetInt32(5);
-                            scheman.Add(s);
-                           
-                            }
-
-                            
+                            scheman.Add(s); 
+                            }    
                         }
                         return scheman;
                     }
@@ -481,37 +474,76 @@ namespace WpfApp1
             }
         }
 
-        /*
-           //metod som hämtar en person baserat på ID
-            public Person GetPersonById(int id)
+        //Metod som skriver ut hemgångna barn
+        public List<Gatthem> hemgangnaBarn()
+        {
+            Gatthem gh;
+            List<Gatthem> gattHem = new List<Gatthem>();
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
             {
-                Person p = new Person();
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT " +
+                        "g.gatt_hem_id, " +
+                        "g.gatt_hem, " +
+                        "b.barn_id, " +
+                        "p.personal_id " +
+                        "FROM gatt_hem g " +
+                        "JOIN barn b ON b.barn_id = g.barn_id " +
+                        "JOIN personal p ON p.personal_id = g.personal_id ";
+
+                    using (var reader = cmd.ExecuteReader())
+
+                        while (reader.Read())
+                        {
+                            gh = new Gatthem()
+                            {
+                                gattHemID = reader.GetInt32(0),
+                                gattHem = reader.GetBoolean(1),
+                                barnID = reader.GetInt32(2),
+                                personalID = reader.GetInt32(3)
+                            };
+                            gattHem.Add(gh);
+                        }
+                }
+                return gattHem;
+            }
+        }
+        
+           //metod som hämtar ett barn baserat på ID
+            public Barn GetBarnByID(int id)
+            {
+                Barn b = new Barn();
                 using (var conn = new
-                    NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
+                    NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
                 {
                     conn.Open();
                     using (var cmd = new NpgsqlCommand())
                     {
                         cmd.Connection = conn;
-                        cmd.CommandText = "SELECT * FROM person WHERE person_id = @person_id";
+                        cmd.CommandText = "SELECT b.fornamn, b.efternamn FROM barn b WHERE barn_id = @barn_id";
 
-                        cmd.Parameters.AddWithValue("person_id", id);
+                        cmd.Parameters.AddWithValue("barn_id", id);
 
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                p.id = reader.GetInt32(0);
-                                p.firstname = reader.GetString(1);
-                                p.lastname = reader.GetString(2);
+                                b.Id = reader.GetInt32(0);
+                                b.FirstName = reader.GetString(1);
+                                b.LastName = reader.GetString(2);
                             }
                         }
                     }
-                    return p;
+                    return b;
                 }
             }
 
-            //metod för att lägga till personer i tabellen
+           /* //metod för att lägga till personer i tabellen
             public void AddNewPerson(int person_id, string firstname, string lastname)
             {
                 using (var conn = new
