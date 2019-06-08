@@ -40,15 +40,6 @@ namespace WpfApp1
             listBox1.ItemsSource = vardnadshavares;
         }
 
-        // visa Vilket BARN som hör till vilken VÅRDNADSHAVARE
-        private void BtnBarn_Click(object sender, RoutedEventArgs e)
-        {
-            selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
-
-            cmbBoxBarn.ItemsSource = null;
-            cmbBoxBarn.ItemsSource = db.GetBarnByVh(selectedVardnadshavare.Id); // här
-        }
-
         private void btn_personalWindow(object sender, RoutedEventArgs e)
         {
             personalWindow pw = new personalWindow();
@@ -61,12 +52,18 @@ namespace WpfApp1
             int nr = 0;
             Barn selectedbarn;
             selectedbarn = (Barn)cmbBoxBarn.SelectedItem;
-            nr = db.BarnIDForSchema(selectedbarn.Id);
-
-
-            SchemaWin sw = new SchemaWin();
-            sw.Show();
-            sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
+            
+            if (selectedbarn == null)
+            {
+                MessageBox.Show("Du måste välja ett barn för att se schemat!");
+            }
+            else
+            {
+                nr = db.BarnIDForSchema(selectedbarn.Id);
+                SchemaWin sw = new SchemaWin();
+                sw.Show();
+                sw.lstviewSchema.ItemsSource = db.GetOneBarnSchema(nr);
+            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
@@ -128,13 +125,11 @@ namespace WpfApp1
                 db.Updatefrukost(ja, nr);
                 MessageBox.Show("Ditt barn kommer att serveras frukost");
             }
-            if (rdBtnFrukostNej.IsChecked == true)
+            else if (rdBtnFrukostNej.IsChecked == true)
             {
                 nej = false;
                 db.Updatefrukost(nej, nr);
                 MessageBox.Show("Ditt barn kommer inte att serveras frukost");
-
-
             }
         }
 
@@ -144,11 +139,15 @@ namespace WpfApp1
             string farhamta = txtFarHamta.Text;
            
             db.UpdateFarHamta(farhamta, selectedBarn.Id);
-            MessageBox.Show("Din kommentar är registrerad!");
-        
-           
-            
-            
+            MessageBox.Show("Din kommentar är registrerad!");     
+        }
+
+        private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedVardnadshavare = (Vardnadshavare)listBox1.SelectedItem;
+
+            cmbBoxBarn.ItemsSource = null;
+            cmbBoxBarn.ItemsSource = db.GetBarnByVh(selectedVardnadshavare.Id);
         }
     }
 }

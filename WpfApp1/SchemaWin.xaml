@@ -16,8 +16,8 @@
                 <GridView>
                     <GridViewColumn Header="Narvarande" Width="130" DisplayMemberBinding="{Binding Narvarodag}"/>
                     <GridViewColumn Header="Ledig" Width="130" DisplayMemberBinding="{Binding LedigDag}"/>
-
                     <GridViewColumn Header="Sjuk" Width="130" DisplayMemberBinding="{Binding Sjukdag}"/>
+                    <GridViewColumn Header="Frånvarande" Width="130" DisplayMemberBinding="{Binding Franvarodag}"/>
                     <GridViewColumn Header="Frukost" Width="130" DisplayMemberBinding="{Binding Frukost}"/>
                     <GridViewColumn Header="Hämtas av" Width="130" DisplayMemberBinding="{Binding Far_hamta}"/>
                     <GridViewColumn Header="Barn_id" Width="130" DisplayMemberBinding="{Binding Barn_id}"/>

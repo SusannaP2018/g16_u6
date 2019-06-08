@@ -404,7 +404,7 @@ namespace WpfApp1
             }
         }
 
-        //Metod som lägger till fårnvarodag (personalvyn)
+        //Metod som lägger till frånvarodag (personalvyn)
         public void AddfranvaroDag(int narvaro_id, int barn_id, int personal_id, DateTime franvarodag)
         {
             using (var conn = new

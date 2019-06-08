@@ -126,11 +126,13 @@ namespace WpfApp1
         {
             int max = db.narvaroMax();
             max++;
+            DateTime dd = DateTime.Today;
+
             try
             {
                 if (checkBoxFranvaro.IsChecked == true)
                 {
-                    db.AddfranvaroDag(max, selectedBarn.Id, selectedPersonal.id, DateTime.Today);
+                    db.AddfranvaroDag(max, selectedBarn.Id, selectedPersonal.id, dd);
                     MessageBox.Show(selectedBarn.FirstName.ToUpper() + " är registrerad som frånvarande idag av: " + selectedPersonal.firstname.ToUpper());
                 }
                 else

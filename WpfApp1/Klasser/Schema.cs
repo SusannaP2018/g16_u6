@@ -8,9 +8,10 @@ namespace WpfApp1
 {
     class Schema
     {
-        public DateTime? Narvarodag { get; set; } 
+        public DateTime? Narvarodag { get; set; }
         public DateTime? LedigDag { get; set; }
         public DateTime? Sjukdag { get; set; }
+        public DateTime? Franvarodag { get; set; } 
         public bool Frukost { get; set; }
         public string Far_hamta { get; set; }
         public int Barn_id { get; set; }
@@ -19,7 +20,7 @@ namespace WpfApp1
 
         public override string ToString()
         {
-            return Narvarodag + " " + LedigDag + " " + Sjukdag + " " + Frukost + " " + Far_hamta + " " + Barn_id;
+            return Narvarodag + " " + LedigDag + " " + Sjukdag + " " + Franvarodag + " " + Frukost + " " + Far_hamta + " " + Barn_id;
         }
     }
 }
