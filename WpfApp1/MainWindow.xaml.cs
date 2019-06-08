@@ -118,22 +118,37 @@ namespace WpfApp1
 
         private void BtnFrukost_Click(object sender, RoutedEventArgs e) // registrerar frukost
         {
-            {
-                selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
+            selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
 
-                int nr = selectedBarn.Id;
-                bool ja, nej;
-                if (rdBtnFrukostJa.IsChecked == true)
-                {
-                    ja = true;
-                    db.Updatefrukost(ja, nr);
-                }
-                if (rdBtnFrukostNej.IsChecked == true)
-                {
-                    nej = false;
-                    db.Updatefrukost(nej, nr);
-                }
+            int nr = selectedBarn.Id;
+            bool ja, nej;
+            if (rdBtnFrukostJa.IsChecked == true)
+            {
+                ja = true;
+                db.Updatefrukost(ja, nr);
+                MessageBox.Show("Ditt barn kommer att serveras frukost");
             }
+            if (rdBtnFrukostNej.IsChecked == true)
+            {
+                nej = false;
+                db.Updatefrukost(nej, nr);
+                MessageBox.Show("Ditt barn kommer inte att serveras frukost");
+
+
+            }
+        }
+
+        private void BtnFarHamta_Click(object sender, RoutedEventArgs e)
+        {
+            selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
+            string farhamta = txtFarHamta.Text;
+           
+            db.UpdateFarHamta(farhamta, selectedBarn.Id);
+            MessageBox.Show("Din kommentar är registrerad!");
+        
+           
+            
+            
         }
     }
 }
