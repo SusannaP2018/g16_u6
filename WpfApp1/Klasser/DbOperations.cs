@@ -18,7 +18,6 @@ namespace WpfApp1
             using (var conn = new
                 NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
             {
-
                 conn.Open();
                 using (var cmd = new NpgsqlCommand())
                 {
@@ -26,15 +25,9 @@ namespace WpfApp1
                     cmd.CommandText = "update dagsschema set (frukost) = (@frukostbool) where barn_id = @hej";
                     cmd.Parameters.AddWithValue("frukostbool", frukost);
                     cmd.Parameters.AddWithValue("hej", barn_id);
-
-
-
-
                     cmd.ExecuteNonQuery();
-
                 }
             }
-
         }
         // Metod som returnerar ett BARN ID
         public int BarnIDForSchema(int id)
@@ -89,40 +82,7 @@ namespace WpfApp1
                 return vardnadshavares;
             }
         }
-        //metod som hämtar alla BARN från BARNTABELLEN
 
-        public List<Barn> GetAllBarn()
-        {
-            Barn b;
-            List<Barn> barns = new List<Barn>();
-
-            string stmt = "SELECT * FROM barn";
-
-            using (var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
-                
-            {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand(stmt, conn))
-
-                using (var reader = cmd.ExecuteReader())
-
-                    while (reader.Read())
-                    {
-                        b = new Barn()
-                        {
-                            Id = reader.GetInt32(0),
-                            FirstName = reader.GetString(1),
-                            LastName = reader.GetString(2),
-                            Lokal = reader.GetString(3),
-                            Avdelning = reader.GetInt32(4)
-                        };
-                        barns.Add(b);
-                    }
-
-                return barns;
-            }
-        }
         // Metod som hämtar barnens SCHEMA
         public List<Schema> GetSchemaBarn()
         {
@@ -416,6 +376,26 @@ namespace WpfApp1
             }
         }
 
+        //Metod som lägger till fårnvarodag (personalvyn)
+        public void AddfranvaroDag(int narvaro_id, int barn_id, int personal_id, DateTime franvarodag)
+        {
+            using (var conn = new
+                        NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO narvaro(narvaro_id, barn_id, personal_id, franvarodag) VALUES (@narvaro_id, @barn_id, @personal_id, @franvarodag) ";
+                    cmd.Parameters.AddWithValue("narvaro_id", narvaro_id);
+                    cmd.Parameters.AddWithValue("barn_id", barn_id);
+                    cmd.Parameters.AddWithValue("personal_id", personal_id);
+                    cmd.Parameters.AddWithValue("franvarodag", franvarodag);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         //Metod som lägger till sjukdag
         public void AddSjukdag(int narvaro_id, int barn_id, int personal_id, DateTime sjukdag)
         {
@@ -519,90 +499,40 @@ namespace WpfApp1
                 return gattHem;
             }
         }
-        
-           //metod som hämtar ett barn baserat på ID
-            public Barn GetBarnByID(int id)
-            {
-                Barn b = new Barn();
-                using (var conn = new
-                    NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
-                {
-                    conn.Open();
-                    using (var cmd = new NpgsqlCommand())
-                    {
-                        cmd.Connection = conn;
-                        cmd.CommandText = "SELECT b.fornamn, b.efternamn FROM barn b WHERE barn_id = @barn_id";
 
-                        cmd.Parameters.AddWithValue("barn_id", id);
+        /* //metod som hämtar alla BARN från BARNTABELLEN
 
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                b.Id = reader.GetInt32(0);
-                                b.FirstName = reader.GetString(1);
-                                b.LastName = reader.GetString(2);
-                            }
-                        }
-                    }
-                    return b;
-                }
-            }
+       public List<Barn> GetAllBarn()
+       {
+           Barn b;
+           List<Barn> barns = new List<Barn>();
 
-           /* //metod för att lägga till personer i tabellen
-            public void AddNewPerson(int person_id, string firstname, string lastname)
-            {
-                using (var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
-                {
-                    conn.Open();
-                    using (var cmd = new NpgsqlCommand())
-                    {
-                        cmd.Connection = conn;
-                        cmd.CommandText = "INSERT INTO person(person_id, firstname, lastname) VALUES (@person_id, @firstname, @lastname) ";
-                        cmd.Parameters.AddWithValue("person_id", person_id);
-                        cmd.Parameters.AddWithValue("firstname", firstname);
-                        cmd.Parameters.AddWithValue("lastname", lastname);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
+           string stmt = "SELECT * FROM barn";
 
-            //metod för att ändra tabellen
-            public void UpdatePerson(int person_id, string firstname, string lastname)
-            {
-                using (var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
-                {
-                    conn.Open();
-                    using (var cmd = new NpgsqlCommand())
-                    {
-                        cmd.Connection = conn;
-                        cmd.CommandText = "UPDATE person SET (firstname, lastname) = " +
-                            "(@firstname, @lastname) WHERE person_id = @person_id";
-                        cmd.Parameters.AddWithValue("person_id", person_id);
-                        cmd.Parameters.AddWithValue("firstname", firstname);
-                        cmd.Parameters.AddWithValue("lastname", lastname);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
+           using (var conn = new
+               NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
 
-            //metod för att ta bort data i tabellen
-            public void DeletePerson(int id)
-            {
-                using (var conn = new
-                NpgsqlConnection(ConfigurationManager.ConnectionStrings["DbConn"].ConnectionString))
-                {
-                    conn.Open();
-                    using (var cmd = new NpgsqlCommand())
-                    {
-                        cmd.Connection = conn;
-                        cmd.CommandText = "DELETE FROM person WHERE person_id = @person_id";
-                        cmd.Parameters.AddWithValue("@person_id", id);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            } */
+           {
+               conn.Open();
+               using (var cmd = new NpgsqlCommand(stmt, conn))
+
+               using (var reader = cmd.ExecuteReader())
+
+                   while (reader.Read())
+                   {
+                       b = new Barn()
+                       {
+                           Id = reader.GetInt32(0),
+                           FirstName = reader.GetString(1),
+                           LastName = reader.GetString(2),
+                           Lokal = reader.GetString(3),
+                           Avdelning = reader.GetInt32(4)
+                       };
+                       barns.Add(b);
+                   }
+
+               return barns;
+           }
+       }*/
     }
 }

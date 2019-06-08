@@ -121,5 +121,28 @@ namespace WpfApp1
 
             hb.listBoxHemgang.ItemsSource = db.hemgangnaBarn();
         }
+
+        private void BtnFranvaro_Click(object sender, RoutedEventArgs e)
+        {
+            int max = db.narvaroMax();
+            max++;
+            try
+            {
+                if (checkBoxFranvaro.IsChecked == true)
+                {
+                    db.AddfranvaroDag(max, selectedBarn.Id, selectedPersonal.id, DateTime.Today);
+                    MessageBox.Show(selectedBarn.FirstName.ToUpper() + " är registrerad som frånvarande idag av: " + selectedPersonal.firstname.ToUpper());
+                }
+                else
+                {
+                    MessageBox.Show("Bocka i checkboxen om du vill registrera frånvaro för ett barn");
+                }
+            }
+            catch (PostgresException ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
     }
 }

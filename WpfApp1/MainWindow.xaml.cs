@@ -49,17 +49,11 @@ namespace WpfApp1
             cmbBoxBarn.ItemsSource = db.GetBarnByVh(selectedVardnadshavare.Id); // här
         }
 
-        private void CmbBoxBarn_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void btn_personalWindow(object sender, RoutedEventArgs e)
         {
             personalWindow pw = new personalWindow();
             pw.Show();
             this.Close();
-
         }
 
         private void BtnSchema_Click(object sender, RoutedEventArgs e)
@@ -107,13 +101,13 @@ namespace WpfApp1
                     db.AddNarvaroDag(max, selectedBarn.Id, vhID, datetime);
                     MessageBox.Show("Närvarodag registrerad " + datetime.ToShortDateString() + " för " + selectedBarn.FirstName.ToUpper());
                 }
-                else if (checkBoxLedig.IsChecked == true && checkBoxSjuk.IsChecked == true || checkBoxLedig.IsChecked == true && checkBoxNarvaro.IsChecked == true || checkBoxSjuk.IsChecked == true && checkBoxNarvaro.IsChecked == true)
+                else if (checkBoxLedig.IsChecked == true && checkBoxSjuk.IsChecked == true || checkBoxLedig.IsChecked == true && checkBoxNarvaro.IsChecked == true || checkBoxSjuk.IsChecked == true && checkBoxNarvaro.IsChecked == true || checkBoxSjuk.IsChecked == true && checkBoxNarvaro.IsChecked == true && checkBoxLedig.IsChecked == true)
                 {
                     MessageBox.Show("Du kan endast välja att antingen registrera en närvarodag, sjukdag eller ledigdag åt gången!");
                 }
                 else
                 {
-                    MessageBox.Show("Du måste kryssa för sjukdag eller ledigdag");
+                    MessageBox.Show("Du måste kryssa för sjukdag, ledigdag eller närvarodag");
                 }
             }
             else
