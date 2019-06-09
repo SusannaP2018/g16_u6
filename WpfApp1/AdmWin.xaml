@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApp1.AdmWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="AdmWin" Height="450" Width="582.627">
+    <Grid Background="#FFE5F4FD">
+        <ListBox x:Name="listVH" HorizontalAlignment="Left" Height="308" Margin="51,66,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnAddVH" Content="Spara ny vårdnadshavare" HorizontalAlignment="Left" Margin="341,269,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnAddVH_Click"/>
+        <Label x:Name="label" Content="Befintliga vårdnadshavare" HorizontalAlignment="Left" Margin="51,35,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtVHfornamn" HorizontalAlignment="Left" Height="23" Margin="341,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtVHefternamn" HorizontalAlignment="Left" Height="23" Margin="341,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtTel" HorizontalAlignment="Left" Height="23" Margin="341,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Vårdnadshavarens förnamn" HorizontalAlignment="Left" Margin="341,87,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
+        <Label x:Name="label1_Copy" Content="Vårdnadshavarens efternamn" HorizontalAlignment="Left" Margin="341,138,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
+        <Label x:Name="label1_Copy1" Content="Vårdnadshavarens telefonnummer" HorizontalAlignment="Left" Margin="341,191,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
+        <Label x:Name="label2" Content="Registrera ny vårdnadshavare" HorizontalAlignment="Left" Margin="341,35,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

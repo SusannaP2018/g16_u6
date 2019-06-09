@@ -46,5 +46,6 @@
         <Button x:Name="btnHome" Content="Hemgångna barn" HorizontalAlignment="Left" Margin="601,157,0,0" VerticalAlignment="Top" Width="173" Height="33" Click="BtnHome_Click"/>
         <CheckBox x:Name="checkBoxFranvaro" Content="Barn är frånvarande" HorizontalAlignment="Left" Margin="544,213,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnFranvaro" Content="Registrera frånvaro" HorizontalAlignment="Left" Margin="544,233,0,0" VerticalAlignment="Top" Width="191" Height="33" Click="BtnFranvaro_Click"/>
+        <Button x:Name="btnAdmWin" Content="Administrera VH och barn" HorizontalAlignment="Left" Margin="380,361,0,0" VerticalAlignment="Top" Width="154" Click="btnAdmWin_Click"/>
     </Grid>
 </Window>

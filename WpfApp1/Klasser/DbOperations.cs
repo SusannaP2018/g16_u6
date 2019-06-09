@@ -528,6 +528,54 @@ namespace WpfApp1
             }
         }
 
+
+        // Metod som hämtar max VH id från tabellen vardnadshavare och lägger till en ny VH med nytt vh_id.
+        public void AddNewVH(string fn, string en, string tel)
+        {
+            int id; // hämtar max VH id
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT MAX(vh_id) FROM vardnadshavare; ";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        id = new int();
+                        while (reader.Read())
+                        {
+                            id = reader.GetInt32(0);
+                        }
+                    }
+                }
+                //return vm;
+            }
+
+            id++; // lägger till 1 till max vh id
+
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString)) // lägger till ny VH med det nya id:t
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO vardnadshavare (" +
+                        "vh_id, fornamn, efternamn, tel) " +
+                        "VALUES(" +
+                        "@id, @fn, @en, @tel); ";
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.Parameters.AddWithValue("fn", fn);
+                    cmd.Parameters.AddWithValue("en", en);
+                    cmd.Parameters.AddWithValue("tel", tel);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         /* //metod som hämtar alla BARN från BARNTABELLEN
 
        public List<Barn> GetAllBarn()

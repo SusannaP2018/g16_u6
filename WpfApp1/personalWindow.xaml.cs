@@ -146,5 +146,12 @@ namespace WpfApp1
                 throw;
             }
         }
+
+        private void btnAdmWin_Click(object sender, RoutedEventArgs e)
+        {
+            AdmWin mw = new AdmWin();
+            mw.Show();
+            this.Close();
+        }
     }
 }
