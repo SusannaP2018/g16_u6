@@ -31,7 +31,10 @@ namespace WpfApp1
         private void btnAddVH_Click(object sender, RoutedEventArgs e)
         {
             DbOperations db = new DbOperations();
-            db.AddNewVH(txtVHfornamn.ToString(), txtVHefternamn.ToString(), txtTel.ToString()); // Lägger till ny VH
+            //string fn = txtVHfornamn.Text;
+            //string en = txtVHefternamn.Text;
+            //string tel = txtTel.Text;
+            db.AddNewVH(txtVHfornamn.Text, txtVHefternamn.Text, txtTel.Text); // Lägger till ny VH
 
             listVH.ItemsSource = null;
             List<Vardnadshavare> vardnadshavares = db.GetAllVardnadshavare(); // refreshar VH-listan 
