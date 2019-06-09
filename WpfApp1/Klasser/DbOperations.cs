@@ -561,7 +561,6 @@ namespace WpfApp1
                         }
                     }
                 }
-                //return vm;
             }
 
             id++; // lägger till 1 till max vh id
@@ -581,6 +580,87 @@ namespace WpfApp1
                     cmd.Parameters.AddWithValue("fn", fn);
                     cmd.Parameters.AddWithValue("en", en);
                     cmd.Parameters.AddWithValue("tel", tel);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public List<Barn> GetAllBarn()
+        {
+            Barn b;
+            List<Barn> bs = new List<Barn>();
+
+            string stmt = "SELECT * FROM barn";
+
+            using (var conn = new
+                NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand(stmt, conn))
+
+                using (var reader = cmd.ExecuteReader())
+
+                    while (reader.Read())
+                    {
+                        b = new Barn()
+                        {
+                            Id = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            Lokal = reader.GetString(3),
+                            Avdelning = reader.GetInt32(4)
+
+
+                        };
+                        bs.Add(b);
+                    }
+
+                return bs;
+            }
+        }
+
+        // Metod som hämtar max Barn id från tabellen barn och lägger till ett nytt barn med nytt barn_id.
+        public void AddNewBarn(string fn, string en, string lok, int avd)
+        {
+            int id; // hämtar max barn id
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT MAX(barn_id) FROM barn; ";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        id = new int();
+                        while (reader.Read())
+                        {
+                            id = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+
+            id++; // lägger till 1 till max barn id
+
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString)) // lägger till nytt barn med det nya id:t
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO barn (" +
+                        "barn_id, fornamn, efternamn, lokal, avdelning) " +
+                        "VALUES(" +
+                        "@id, @fn, @en, @lok, @avd); ";
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.Parameters.AddWithValue("fn", fn);
+                    cmd.Parameters.AddWithValue("en", en);
+                    cmd.Parameters.AddWithValue("lok", lok);
+                    cmd.Parameters.AddWithValue("avd", avd);
                     cmd.ExecuteNonQuery();
                 }
             }

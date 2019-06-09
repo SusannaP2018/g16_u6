@@ -22,6 +22,20 @@ namespace WpfApp1
         public AdmWinBarn()
         {
             InitializeComponent();
+
+            DbOperations db = new DbOperations();
+            List<Barn> bs = db.GetAllBarn();
+            listBarn.ItemsSource = bs;
+        }
+
+        private void btnAddBarn_Click(object sender, RoutedEventArgs e)
+        {
+            DbOperations db = new DbOperations();
+            db.AddNewBarn(txtBfornamn.Text, txtBefternamn.Text, txtBlokal.Text, int.Parse(txtBavd.Text)); // Lägger till nytt barn
+
+            listBarn.ItemsSource = null;
+            List<Barn> bs = db.GetAllBarn(); // refreshar barnlistan 
+            listBarn.ItemsSource = bs;
         }
     }
 }

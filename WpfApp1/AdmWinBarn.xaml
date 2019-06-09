@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="AdmWinBarn" Height="450" Width="800">
-    <Grid>
-        
+        Title="AdmWinBarn" Height="450" Width="578.814">
+    <Grid Background="#FFE5F4FD">
+        <ListBox x:Name="listBarn" HorizontalAlignment="Left" Height="308" Margin="51,66,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnAddBarn" Content="Spara nytt barn" HorizontalAlignment="Left" Margin="341,282,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnAddBarn_Click"/>
+        <Label x:Name="label" Content="Befintliga barn" HorizontalAlignment="Left" Margin="51,35,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBfornamn" HorizontalAlignment="Left" Height="23" Margin="341,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBefternamn" HorizontalAlignment="Left" Height="23" Margin="341,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBlokal" HorizontalAlignment="Left" Height="23" Margin="341,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Barnets förnamn" HorizontalAlignment="Left" Margin="341,69,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
+        <Label x:Name="label1_Copy" Content="Barnets efternamn" HorizontalAlignment="Left" Margin="341,115,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
+        <Label x:Name="label1_Copy1" Content="Barnets lokal" HorizontalAlignment="Left" Margin="341,162,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
+        <Label x:Name="label2" Content="Registrera nytt barn" HorizontalAlignment="Left" Margin="341,35,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnKopplaWin" Content="Koppla Barn och VH" HorizontalAlignment="Left" Margin="341,340,0,0" VerticalAlignment="Top" Width="149" Height="34"/>
+        <TextBox x:Name="txtBavd" HorizontalAlignment="Left" Height="23" Margin="341,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy2" Content="Barnets avdelning" HorizontalAlignment="Left" Margin="341,209,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
+
     </Grid>
 </Window>
