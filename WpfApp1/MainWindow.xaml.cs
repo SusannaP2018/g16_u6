@@ -137,9 +137,15 @@ namespace WpfApp1
         {
             selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
             string farhamta = txtFarHamta.Text;
-           
-            db.UpdateFarHamta(farhamta, selectedBarn.Id);
-            MessageBox.Show("Din kommentar är registrerad!");     
+            if (selectedBarn == null)
+            {
+                MessageBox.Show("Du måste välja ett barn i listan");
+            }
+            else
+            {
+                db.UpdateFarHamta(farhamta, selectedBarn.Id);
+                MessageBox.Show("Din kommentar är registrerad!");
+            }     
         }
 
         private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -148,6 +154,19 @@ namespace WpfApp1
 
             cmbBoxBarn.ItemsSource = null;
             cmbBoxBarn.ItemsSource = db.GetBarnByVh(selectedVardnadshavare.Id);
+        }
+
+        private void CmbBoxBarn_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedBarn = (Barn)cmbBoxBarn.SelectedItem;
+            if (selectedBarn != null)
+            {
+                lblBarnNamn.Content = selectedBarn.FirstName.ToUpper() + " " + selectedBarn.LastName.ToUpper();
+            }
+            else
+            {
+                cmbBoxBarn.ItemsSource = null;
+            }
         }
     }
 }

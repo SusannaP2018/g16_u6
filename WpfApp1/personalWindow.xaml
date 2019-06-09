@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="personalWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Vårdnadshavarvyn" HorizontalAlignment="Left" Margin="592,369,0,0" VerticalAlignment="Top" Width="190" Click="btn_vardWindow" Height="40"/>
+    <Grid Background="#FFE5F4FD">
+        <Button Content="Vårdnadshavarvyn" HorizontalAlignment="Left" Margin="584,361,0,0" VerticalAlignment="Top" Width="190" Click="btn_vardWindow" Height="40" Background="#FF211E1E" Foreground="White" FontSize="16" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
         <ListBox x:Name="listBoxPersonal" HorizontalAlignment="Left" Height="150" Margin="33,55,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="ListBoxPersonal_SelectionChanged"/>
         <Label x:Name="label" Content="Personallista" HorizontalAlignment="Left" Margin="104,24,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Barn på avdelning " HorizontalAlignment="Left" Margin="341,19,0,0" VerticalAlignment="Top"/>
@@ -30,12 +34,12 @@
         <Button Content="Schema för valt barn" HorizontalAlignment="Left" Margin="601,70,0,0" VerticalAlignment="Top" Width="173" Height="40" Click="Btn_SchemaWindow"/>
         <CheckBox x:Name="checkBoxHem" Content="Barn har gått hem" HorizontalAlignment="Left" Margin="293,213,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnRegister" Content="Registrera hemgång" HorizontalAlignment="Left" Margin="293,233,0,0" VerticalAlignment="Top" Width="191" Height="33" Click="BtnRegister_Click"/>
-        <ListView x:Name="listViewVard" ItemsSource="{Binding vardnadshavare}" HorizontalAlignment="Left" Height="100" Margin="33,301,0,0" VerticalAlignment="Top" Width="295">
+        <ListView x:Name="listViewVard" ItemsSource="{Binding vardnadshavare}" HorizontalAlignment="Left" Height="100" Margin="33,301,0,0" VerticalAlignment="Top" Width="295" Background="#FFE6DFDF">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Förnamn" Width="91" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="Efternamn" Width="91" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Header="Telefonnummer" Width="91" DisplayMemberBinding="{Binding Telephone}"/>
+                    <GridViewColumn Header="Förnamn" Width="95" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Efternamn" Width="95" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Telefonnummer" Width="95" DisplayMemberBinding="{Binding Telephone}"/>
                 </GridView>
             </ListView.View>
         </ListView>
