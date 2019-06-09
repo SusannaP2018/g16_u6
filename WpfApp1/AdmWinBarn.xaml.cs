@@ -36,6 +36,14 @@ namespace WpfApp1
             listBarn.ItemsSource = null;
             List<Barn> bs = db.GetAllBarn(); // refreshar barnlistan 
             listBarn.ItemsSource = bs;
+            MessageBox.Show("Vårdnadshavare registrerad!");
+        }
+
+        private void btnKopplaWin_Click(object sender, RoutedEventArgs e)
+        {
+            AdmWinKoppla w = new AdmWinKoppla();
+            w.Show();
+            this.Close();
         }
     }
 }
