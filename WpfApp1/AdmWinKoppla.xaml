@@ -9,9 +9,10 @@
     <Grid Background="#FFE5F4FD">
         <Label x:Name="label" Content="Välj vårdnadshavare" HorizontalAlignment="Left" Margin="51,35,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Välj barn" HorizontalAlignment="Left" Margin="369,35,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnKopplaBarnVH" Content="Koppla Barn och VH" HorizontalAlignment="Left" Margin="276,130,0,0" VerticalAlignment="Top" Width="149" Height="34"/>
+        <Button x:Name="btnKopplaBarnVH" Content="Koppla Barn och VH" HorizontalAlignment="Left" Margin="276,130,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnKopplaBarnVH_Click"/>
         <ComboBox x:Name="comboVH" HorizontalAlignment="Left" Margin="51,74,0,0" VerticalAlignment="Top" Width="285"/>
         <ComboBox x:Name="comboBarn" HorizontalAlignment="Left" Margin="369,74,0,0" VerticalAlignment="Top" Width="285"/>
+        <Button x:Name="btnBack" Content="Tillbaka till huvudmenyn" HorizontalAlignment="Left" Margin="276,199,0,0" VerticalAlignment="Top" Width="149" Height="33" Click="btnBack_Click"/>
 
     </Grid>
 </Window>

@@ -666,6 +666,27 @@ namespace WpfApp1
             }
         }
 
+        // Kopplar barn till VH
+        public void AddNewBarnVHConnection(int b, int v)
+        {
+            using (var conn = new
+            NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString)) 
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO barn_vh (" +
+                        "barn_id, vh_id) " +
+                        "VALUES(" +
+                        "@b, @v);";
+                    cmd.Parameters.AddWithValue("b", b);
+                    cmd.Parameters.AddWithValue("v", v);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         /* //metod som hämtar alla BARN från BARNTABELLEN
 
        public List<Barn> GetAllBarn()
