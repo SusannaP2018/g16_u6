@@ -687,39 +687,6 @@ namespace WpfApp1
             }
         }
 
-        /* //metod som hämtar alla BARN från BARNTABELLEN
-
-       public List<Barn> GetAllBarn()
-       {
-           Barn b;
-           List<Barn> barns = new List<Barn>();
-
-           string stmt = "SELECT * FROM barn";
-
-           using (var conn = new
-               NpgsqlConnection(ConfigurationManager.ConnectionStrings["ik102g_db16"].ConnectionString))
-
-           {
-               conn.Open();
-               using (var cmd = new NpgsqlCommand(stmt, conn))
-
-               using (var reader = cmd.ExecuteReader())
-
-                   while (reader.Read())
-                   {
-                       b = new Barn()
-                       {
-                           Id = reader.GetInt32(0),
-                           FirstName = reader.GetString(1),
-                           LastName = reader.GetString(2),
-                           Lokal = reader.GetString(3),
-                           Avdelning = reader.GetInt32(4)
-                       };
-                       barns.Add(b);
-                   }
-
-               return barns;
-           }
-       }*/
+        
     }
 }
