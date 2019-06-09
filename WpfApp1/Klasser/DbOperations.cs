@@ -125,7 +125,7 @@ namespace WpfApp1
                 using (var cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "select narvaro.narvarodag, narvaro.ledigdag, narvaro.sjukdag, dagsschema.frukost, dagsschema.far_hamta, narvaro.barn_id from narvaro full join dagsschema on narvaro.barn_id = dagsschema.barn_id";
+                    cmd.CommandText = "select narvaro.narvarodag, narvaro.ledigdag, narvaro.sjukdag, narvaro.franvarodag, dagsschema.frukost, dagsschema.far_hamta, narvaro.barn_id from narvaro full join dagsschema on narvaro.barn_id = dagsschema.barn_id";
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -159,9 +159,19 @@ namespace WpfApp1
                                     s.Sjukdag = null;
 
                             }
-                                    s.Frukost = reader.GetBoolean(3);
-                                    s.Far_hamta = reader.GetString(4);
-                                    s.Barn_id = reader.GetInt32(5);
+                            if (!reader.IsDBNull(3))
+                            {
+                                s.Franvarodag = reader.GetDateTime(3);
+
+                            }
+                            else
+                            {
+                                s.Franvarodag = null;
+
+                            }
+                            s.Frukost = reader.GetBoolean(4);
+                                    s.Far_hamta = reader.GetString(5);
+                                    s.Barn_id = reader.GetInt32(6);
                             scheman.Add(s); 
                             }    
                         }
