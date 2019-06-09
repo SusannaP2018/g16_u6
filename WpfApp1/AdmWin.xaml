@@ -8,7 +8,7 @@
         Title="AdmWin" Height="450" Width="582.627">
     <Grid Background="#FFE5F4FD">
         <ListBox x:Name="listVH" HorizontalAlignment="Left" Height="308" Margin="51,66,0,0" VerticalAlignment="Top" Width="202"/>
-        <Button x:Name="btnAddVH" Content="Spara ny vårdnadshavare" HorizontalAlignment="Left" Margin="341,269,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnAddVH_Click"/>
+        <Button x:Name="btnAddVH" Content="Spara ny vårdnadshavare" HorizontalAlignment="Left" Margin="341,256,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnAddVH_Click"/>
         <Label x:Name="label" Content="Befintliga vårdnadshavare" HorizontalAlignment="Left" Margin="51,35,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtVHfornamn" HorizontalAlignment="Left" Height="23" Margin="341,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtVHefternamn" HorizontalAlignment="Left" Height="23" Margin="341,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
@@ -17,7 +17,8 @@
         <Label x:Name="label1_Copy" Content="Vårdnadshavarens efternamn" HorizontalAlignment="Left" Margin="341,138,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
         <Label x:Name="label1_Copy1" Content="Vårdnadshavarens telefonnummer" HorizontalAlignment="Left" Margin="341,191,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
         <Label x:Name="label2" Content="Registrera ny vårdnadshavare" HorizontalAlignment="Left" Margin="341,35,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnNyttBarnWin" Content="Administrera barn" HorizontalAlignment="Left" Margin="341,340,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnNyttBarnWin_Click"/>
+        <Button x:Name="btnNyttBarnWin" Content="Administrera barn" HorizontalAlignment="Left" Margin="341,311,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnNyttBarnWin_Click"/>
+        <Button x:Name="btnBack" Content="Tillbaka till huvudmenyn" HorizontalAlignment="Left" Margin="341,365,0,0" VerticalAlignment="Top" Width="149" Height="33" Click="btnBack_Click"/>
 
     </Grid>
 </Window>
