@@ -17,7 +17,7 @@
         <Label x:Name="label1_Copy" Content="Vårdnadshavarens efternamn" HorizontalAlignment="Left" Margin="341,138,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
         <Label x:Name="label1_Copy1" Content="Vårdnadshavarens telefonnummer" HorizontalAlignment="Left" Margin="341,191,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="10"/>
         <Label x:Name="label2" Content="Registrera ny vårdnadshavare" HorizontalAlignment="Left" Margin="341,35,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnNyttBarnWin" Content="Administrera barn" HorizontalAlignment="Left" Margin="341,340,0,0" VerticalAlignment="Top" Width="149" Height="34" Click="btnNyttBarnWin_Click"/>
+        <Button x:Name="btnNyttBarnWin" Content="Gå vidare till Administrera barn" HorizontalAlignment="Left" Margin="302,340,0,0" VerticalAlignment="Top" Width="188" Height="34" Click="btnNyttBarnWin_Click"/>
 
     </Grid>
 </Window>
