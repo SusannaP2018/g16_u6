@@ -84,6 +84,9 @@
     <Compile Include="AdmWinBarn.xaml.cs">
       <DependentUpon>AdmWinBarn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdmWinKoppla.xaml.cs">
+      <DependentUpon>AdmWinKoppla.xaml</DependentUpon>
+    </Compile>
     <Compile Include="hemgangna barn.xaml.cs">
       <DependentUpon>hemgangna barn.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdmWinBarn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdmWinKoppla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

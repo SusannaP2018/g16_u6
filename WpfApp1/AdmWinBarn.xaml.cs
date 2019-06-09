@@ -27,7 +27,7 @@ namespace WpfApp1
             List<Barn> bs = db.GetAllBarn();
             listBarn.ItemsSource = bs;
         }
-        DbOperations db = new DbOperations();
+
         private void btnAddBarn_Click(object sender, RoutedEventArgs e)
         {
             DbOperations db = new DbOperations();
@@ -35,7 +35,15 @@ namespace WpfApp1
 
             listBarn.ItemsSource = null;
             List<Barn> bs = db.GetAllBarn(); // refreshar barnlistan 
-            listBarn.ItemsSource = bs; 
+            listBarn.ItemsSource = bs;
+            MessageBox.Show("Vårdnadshavare registrerad!");
+        }
+
+        private void btnKopplaWin_Click(object sender, RoutedEventArgs e)
+        {
+            AdmWinKoppla w = new AdmWinKoppla();
+            w.Show();
+            this.Close();
         }
     }
 }

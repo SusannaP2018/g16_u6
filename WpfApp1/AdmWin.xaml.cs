@@ -36,6 +36,7 @@ namespace WpfApp1
             listVH.ItemsSource = null;
             List<Vardnadshavare> vardnadshavares = db.GetAllVardnadshavare(); // refreshar VH-listan 
             listVH.ItemsSource = vardnadshavares;
+            MessageBox.Show("Vårdnadshavare registrerad!");
         }
 
         private void btnNyttBarnWin_Click(object sender, RoutedEventArgs e)
