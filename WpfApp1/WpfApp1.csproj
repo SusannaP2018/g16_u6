@@ -81,6 +81,9 @@
     <Compile Include="AdmWin.xaml.cs">
       <DependentUpon>AdmWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdmWinBarn.xaml.cs">
+      <DependentUpon>AdmWinBarn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="hemgangna barn.xaml.cs">
       <DependentUpon>hemgangna barn.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
     </Compile>
     <Compile Include="Klasser\Vardnadshavare.cs" />
     <Page Include="AdmWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdmWinBarn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
